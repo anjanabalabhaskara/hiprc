@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PySchedCL’s documentation! &mdash; PySchedCL 1.0 documentation</title>
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+
+
+
+  <link rel="top" title="PySchedCL 1.0 documentation" href="#" />
+  <link rel="next" title="pyschedcl package" href="pyschedcl.html" />
+
+  <link rel="author" title="About these documents" href="#" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="top" title="PySchedCL documentation" href="index.html" />
+  <link rel="next" title="Installation" href="install.html" />
+  <link rel="prev" title="PySchedCL Environment" href="index.html" />
+
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          <a href="#" class="icon icon-home"> PySchedCL
+
+
+
+          </a>
+
+
+
+
+          <div class="version">
+            1.0
+          </div>
+
+
+
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="partitioning.html">Partitioning</a></li>
+            <li class="toctree-l1 current"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+            <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+            <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PySchedCL</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+
+
+
+
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="#">Docs</a> &raquo;</li>
+
+              <li>PySchedCL&#8217;s documentation!</li>
+              <li class="wy-breadcrumbs-aside">
+
+                <div class=asetop>
+                    <a href=../index_hpc.php> HPC </a>
+                    |
+                  <a href=genindex.html>index</a>
+                  | <a href=pyschedcl.html>modules</a>
+                  | <a href="https://github.com/anighose25/pyschedcl" >github</a>
+                  | <a href=_modules/pyschedcl/pyschedcl.html> source</a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <div class="section" id="pyschedcl-home">
+                <h1>Scheduling <a class="headerlink" href="#pyschedcl-home" title="Permalink to this headline">¶</a></h1>
+                <p> PySchedCL offers a scheduling engine (<b>scheduler.py</b>) capable of dispatching a set of independent OpenCL kernels to available CPU and GPU devices on a heterogeneous platform. The engine takes care of the OpenCL runtime context, command queue and device management. It also takes care of
+                  managing resources associated with each OpenCL kernel. Given a set of kernel specification files and a scheduling policy, the engine takes care of managing  each read, write and computation operation associated with all kernels through correct synchronization primitives. This is depicted in the following figure.
+                <img class="img-responsive" src="schedule_engine.png" align="center">
+                <p> Depending on the total number of CPU and GPU devices present in the target platform, corresponding contexts, command queues and devices are initially setup. Buffer and argument information for each OpenCL kernel is maintained by the framework. The <b>dispatch()</b> function dictates to which set of devices a kernel should be mapped at runtime. The selection criteria for choosing a kernel  from a set of kernels competing for resources constitutes the scheduling heuristic.
+                 The scheduling engine allows the user to design and incorporate their own scheduling heuristics by defining their own version of the <b>select()</b> function.
+                 The input to this function would be a set of user defined  task queue(s) where each queue may contain OpenCL kernels that share the same characteristics. Depending on the device availability and the selection strategy, the relevant set of arguments is provided to the <b>dispatch()</b> function which carries out the final runtime mapping. The scheduling engine internally maintains ready queues and device counters that depict runtime device availability. Once a kernel has finished execution on a particular device, it notifies the engine with the help of <b>notify_callback()</b> function. The corresponding ready queues and device counters are updated accordingly.
+                 <p> We provide a list of guidelines that may be used by end users in devising and experimenting  custom scheduling heuristics using the scheduling engine. We proceed by describing the implementation of the baseline heuristic in detail.
+
+                <h2> Queue Specification </h2>
+                <p>The user initially needs to provide a task queue specification by setting the number of task queues and specifying characteristic properties of each task queue. One example would be
+                    specifying the partition boundaries of each queue. For the baseline heuristic, the task queue specification maintains three distinct priority queues cpu_q, gpu_q and mixed_q
+                containing tasks that should execute only on the CPU, only on the GPU, and in
+                a partitioned fashion between a CPU and GPU respectively. The ordering of tasks inside each queue
+                is done on the basis of total number of global work items. The corresponding code for task queue specification must be written
+                inside <b>select_main</b> function of the <b>scheduler.py</b> script. This is depicted below.
+                <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #000080; font-weight: bold">for</span> i <span style="font-weight: bold">in</span> range(len(kernels)):
+        kernels[i].build_kernel(gpus, cpus, ctxs)
+        kernels[i].random_data()
+        p = kernels[i].partition
+        num_global_work_items = kernels[i].get_num_global_work_items()
+
+        <span style="color: #000080; font-weight: bold">if</span> p == <span style="color: #0000FF">0</span>:
+            heapq.heappush(cpu_q, (p, -num_global_work_items, i))
+            rCPU += <span style="color: #0000FF">1</span>
+        <span style="color: #000080; font-weight: bold">elif</span> p == <span style="color: #0000FF">10</span>:
+            heapq.heappush(gpu_q, (-p, -num_global_work_items, i))
+            rGPU += <span style="color: #0000FF">1</span>
+        <span style="color: #000080; font-weight: bold">else</span>:
+
+            heapq.heappush(mixed_q, (abs(p-<span style="color: #0000FF">5</span>), -num_global_work_items, i))
+            rCPU +=<span style="color: #0000FF">1</span>
+            rGPU +=<span style="color: #0000FF">1</span>
+</pre></td></tr></table></div>
+
+
+                <h2> Custom Select Routine</h2>
+              <p>  After setting up the task queue specification, the user must specify a scheduling heuristic by designing a <b>select() </b> function in <b>scheduler.py</b>. The arguments
+                of select() comprise the queues in the task queue specification. The selection strategy may be designed by a set of rules that uses this task queue specification. The set of rules for the baseline strategy are as follows.
+<ol>
+<li>If both types of devices are available, a task from mixed_q is dequeued and selected.
+ </li>
+<li>If only one type of device is available, tasks from queues cpu_q or gpu_q are selected and returned.
+</li>
+</ol>
+The primary objective of  the baseline strategy is to dispatch each and every OpenCL kernel to the target heterogeneous platform while respecting their individual partition classes.
+The corresponding code for the selection strategy is depicted below.
+                <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">def</span> baseline_select(kernels, **kwargs):
+    mixed_q = kwargs[<span style="color: #0000FF">&#39;M&#39;</span>]
+    gpu_q = kwargs[<span style="color: #0000FF">&#39;G&#39;</span>]
+    cpu_q = kwargs[<span style="color: #0000FF">&#39;C&#39;</span>]
+
+    now_kernel = None
+    <span style="color: #000080; font-weight: bold">if</span> fw.nCPU &gt; <span style="color: #0000FF">0</span> <span style="font-weight: bold">and</span> fw.nGPU &gt; <span style="color: #0000FF">0</span> <span style="font-weight: bold">and</span> mixed_q:
+        i_p, i_num_global_work_items, i = heapq.heappop(mixed_q)
+        i_num_global_work_items, i_p = kernels[i].get_num_global_work_items(), kernels[i].partition
+
+        now_kernel = (i, i_p)
+    <span style="color: #000080; font-weight: bold">elif</span> fw.nCPU &gt; <span style="color: #0000FF">0</span> <span style="font-weight: bold">and</span> cpu_q:
+        c_p, c_num_global_work_items, c_i = heapq.heappop(cpu_q)
+        now_kernel = (c_i, <span style="color: #0000FF">0</span>)
+    <span style="color: #000080; font-weight: bold">elif</span> fw.nGPU &gt; <span style="color: #0000FF">0</span> <span style="font-weight: bold">and</span> gpu_q:
+        g_p, g_num_global_work_items, g_i = heapq.heappop(gpu_q)
+        now_kernel = (g_i, <span style="color: #0000FF">10</span>)
+    <span style="color: #000080; font-weight: bold">if</span> now_kernel <span style="font-weight: bold">is</span> <span style="font-weight: bold">not</span> None:
+        i, p =now_kernel
+        logging.debug( <span style="color: #0000FF">&quot;Selecting kernel &quot;</span> + kernels[i].name + <span style="color: #0000FF">&quot; with partition class value &quot;</span> + str(p))
+    <span style="color: #000080; font-weight: bold">return</span> now_kernel, None
+</pre></td></tr></table></div>
+  <h2> Register Select Routine in Engine </h2>
+  <p> Once, the task queue specification has been designed and the select function has been implemented, the method should be registered into the scheduling engine so that it may be called using the command line utility.
+  This may be done by first including the name of the selection strategy in the <b>parse_arg()</b> routine so that the command line utility may display the available scheduling heuristic on the terminal. This should be followed by including a conditional statement  inside the main function of <b>scheduler.py</b>. Both of these changes are depicted below.
+
+  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #000080; font-weight: bold">def</span> parse_arg(args=None):
+
+    parser.add_argument(<span style="color: #0000FF">&#39;-s&#39;</span>, <span style="color: #0000FF">&#39;--select&#39;</span>,
+                        help=<span style="color: #0000FF">&#39;Scheduling heuristic (baseline, lookahead, adbias) &#39;</span>,
+                        default=<span style="color: #0000FF">&#39;baseline&#39;</span>)
+
+<span style="color: #000080; font-weight: bold">if</span> __name__ == <span style="color: #0000FF">&#39;__main__&#39;</span>:
+
+     <span style="color: #000080; font-weight: bold">if</span> args.select == <span style="color: #0000FF">&quot;baseline&quot;</span>:
+        dump_dev = select_main(kernels, select=baseline_select)
+</pre></td></tr></table></div>
+<h2> TaskSet File Specification </h2>
+<p> The <b>scheduler.py</b> script processes a file with <b>.task</b> extension which contains a list of kernel specification files along with partition class values and dataset values. A sample taskset specification file is shown below.
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">
+ </pre></td><td><pre style="margin: 0; line-height: 125%">mean.json <span style="color: #0000FF">6</span> <span style="color: #0000FF">512</span>
+reduce1.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">1024</span>
+atax2.json <span style="color: #0000FF">4</span> <span style="color: #0000FF">1024</span>
+std.json <span style="color: #0000FF">8</span> <span style="color: #0000FF">512</span>
+reduce5.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">2048</span>
+2DConvul.json <span style="color: #0000FF">2</span> <span style="color: #0000FF">256</span>
+reduce0.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">1024</span>
+reduce4.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">1024</span>
+DotProduct.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">8192</span>
+reduce2.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">2048</span>
+reduce3.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">1024</span>
+mm21.json <span style="color: #0000FF">2</span> <span style="color: #0000FF">512</span>
+bicg2.json <span style="color: #0000FF">9</span> <span style="color: #0000FF">512</span>
+reduce6.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">512</span>
+VectorAdd.json <span style="color: #0000FF">10</span> <span style="color: #0000FF">8192</span>
+covar.json <span style="color: #0000FF">4</span> <span style="color: #0000FF">256</span>
+corr.json <span style="color: #0000FF">5</span> <span style="color: #0000FF">512</span>
+mm22.json <span style="color: #0000FF">3</span> <span style="color: #0000FF">1024</span>
+</pre></td></tr></table></div>
+The task files are typically stored in the info directory of the PySchedCL package. A few sample task files are provided.
+
+<h2> Running the Scheduler Script</h2>
+
+One may invoke the <b>scheduler.py</b> script inside the scheduler folder on a taskset specification file inside the info folder and generate makespan results for the same.
+<div class="highlight-bash">
+  <div class="highlight"><pre><span></span>
+$ ./scheduler.py -f info/sample.task -ng 4 -nc 4
+
+    <span class="si"></span>                    </pre></div>
+</div>
+Detailed usage for the same is depicted in  <b><a href="commands.html#command_scheduler">Scheduler </a></b> in the Commands section.
+                <div class="toctree-wrapper compound">
+                  <ul>
+
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <footer>
+
+            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+              <a href="utilities.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+            </div>
+
+
+            <hr/>
+
+            <div role="contentinfo">
+              <p>
+                &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+
+              </p>
+            </div>
+            Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+          </footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT: './',
+      VERSION: '1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '.html',
+      HAS_SOURCE: true
+    };
+  </script>
+  <script type="text/javascript" src="_static/jquery.js"></script>
+  <script type="text/javascript" src="_static/underscore.js"></script>
+  <script type="text/javascript" src="_static/doctools.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function() {
+      SphinxRtdTheme.StickyNav.enable();
+    });
+  </script>
+
+
+</body>
+
+</html>

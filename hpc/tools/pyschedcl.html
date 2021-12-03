@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>pyschedcl package &mdash; PySchedCL 1.0 documentation</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+
+
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+
+
+  <link rel="top" title="PySchedCL 1.0 documentation" href="home.html" />
+  <link rel="prev" title="Welcome to PySchedCL’s documentation!" href="home.html" />
+
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+
+
+          <a href="home.html" class="icon icon-home"> PySchedCL
+
+
+
+          </a>
+
+
+
+
+          <div class="version">
+            1.0
+          </div>
+
+
+
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+          <ul>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+                <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+                <li class="toctree-l1 current"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+                <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+                <li class="toctree-l1"><a class="reference internal" href="partitioning.html">Partitioning</a></li>
+                <li class="toctree-l1"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+                <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+                <li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+                <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+                <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="home.html">PySchedCL</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="home.html">Docs</a> &raquo;</li>
+
+              <li>pyschedcl API </li>
+              <li class="wy-breadcrumbs-aside">
+
+
+                <div class=asetop>
+                    <a href=../index_hpc.php> HPC </a>
+                    |
+                  <a href=genindex.html>index</a> | <a href=pyschedcl.html>modules</a> | <a href="https://github.com/anighose25/pyschedcl">github</a> | <a href=_modules/pyschedcl/pyschedcl.html> source</a>
+                </div>
+
+
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <div class="section" id="pyschedcl-package">
+                <h1>PySchedCL API documentation<a class="headerlink" title="Permalink to this headline">¶</a></h1>
+
+                <div class="section" id="module-pyschedcl.pyschedcl">
+                  <span id="pyschedcl-pyschedcl-module"></span>
+                  <h2>pyschedcl.pyschedcl module<a class="headerlink" href="#module-pyschedcl.pyschedcl" title="Permalink to this headline">¶</a></h2>
+                  <dl class="class">
+                    <dt id="pyschedcl.pyschedcl.HostEvents">
+<em class="property">class </em><code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">HostEvents</code><span class="sig-paren">(</span><em>kernel_name=''</em>, <em>kernel_id=''</em>, <em>dispatch_id=''</em>, <em>dispatch_start=None</em>, <em>dispatch_end=None</em>, <em>create_buf_start=None</em>, <em>create_buf_end=None</em>, <em>write_start=None</em>, <em>write_end=None</em>, <em>ndrange_start=None</em>, <em>ndrange_end=None</em>, <em>read_start=None</em>, <em>read_end=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#HostEvents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.HostEvents" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+                      <p>Class for storing timing information of various events associated with a kernel.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Variables:</th>
+                            <td class="field-body">
+                              <ul class="first last simple">
+                                <li><strong>dispatch_start</strong> &#8211; Start Timestamp for dispatch function</li>
+                                <li><strong>dispatch_end</strong> &#8211; End Timestamp for dispatch function</li>
+                                <li><strong>create_buf_start</strong> &#8211; Start Timestamp for Creation of Buffers</li>
+                                <li><strong>create_buf_end</strong> &#8211; End Timestamp for Creation of Buggers</li>
+                                <li><strong>write_start</strong> &#8211; Start TimeStamp for Enqueuing Write Buffer Commands on Command Queue</li>
+                                <li><strong>write_end</strong> &#8211; End Timestamp for Writing of Buffers to Device</li>
+                                <li><strong>ndrange_start</strong> &#8211; Start TimeStamp for Launching Kernel</li>
+                                <li><strong>ndrange_end</strong> &#8211; End Timestamp for when kernel execution is finished on device</li>
+                                <li><strong>read_start</strong> &#8211; Start TimeStamp for Enqueuing Read Buffer Commands on Command Queue</li>
+                                <li><strong>read_end</strong> &#8211; End TimeStamp for Reading of Buffers from Device to Host</li>
+                                <li><strong>kernel_name</strong> &#8211; Name of kernel</li>
+                                <li><strong>kernel_id</strong> &#8211; Unique id for kernel</li>
+                                <li><strong>dispatch_id</strong> &#8211; Dispatch id for kernel</li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="class">
+                    <dt id="pyschedcl.pyschedcl.Kernel">
+<em class="property">class </em><code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">Kernel</code><span class="sig-paren">(</span><em>src</em>, <em>dataset=1024</em>, <em>partition=None</em>, <em>identifier=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+                      <p>Class to handle all operations performed on OpenCL kernel.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Variables:</th>
+                            <td class="field-body">
+                              <ul class="first last simple">
+                                <li><strong>dataset</strong> &#8211; An integer representing size of the data on which kernel will be dispatched.</li>
+                                <li><a class="reference external" href="https://docs.python.org/library/functions.html#id" title="(in Python v2.7)"><strong>id</strong></a> &#8211; An id that is used identify a kernel uniquely.</li>
+                                <li><strong>eco</strong> &#8211; A dictionary mapping between size of dataset and Estimated Computation Overhead</li>
+                                <li><strong>name</strong> &#8211; Name of the Kernel</li>
+                                <li><strong>src</strong> &#8211; Path to the Kernel source file.</li>
+                                <li><strong>partition</strong> &#8211; An integer denoting the partition class of the kernel.</li>
+                                <li><strong>work_dimension</strong> &#8211; Work Dimension of the Kernel.</li>
+                                <li><strong>global_work_size</strong> &#8211; A list denoting global work dimensions along different axes.</li>
+                                <li><strong>local_work_size</strong> &#8211; A list denoting local work dimensions along different axes.</li>
+                                <li><strong>buffer_info</strong> &#8211; Properties of Buffers</li>
+                                <li><strong>input_buffers</strong> &#8211; Dictionaries containing actual cl.Buf f er objects.</li>
+                                <li><strong>output_buffers</strong> &#8211; Dictionaries containing actual cl.Buf f er objects.</li>
+                                <li><strong>io_buffers</strong> &#8211; Dictionaries containing actual cl.Buf f er objects.</li>
+                                <li><strong>data</strong> &#8211; Numpy Arrays maintaining the input and output data of the kernels.</li>
+                                <li><strong>buffer_deps</strong> &#8211; Dictionary mapping containing buffer dependencies.</li>
+                                <li><strong>variable_args</strong> &#8211; Data corresponding to Variable arguments of the kernel.</li>
+                                <li><strong>local_args</strong> &#8211; Information regarding Local Arguments of the kernel.</li>
+                                <li><strong>objects</strong> (<em>kernel</em>) &#8211; Dictionary mapping between devices and compiled and built pyopencl.Kernel objects.</li>
+                                <li><strong>events</strong> &#8211; Dictionary containing pyschedcl.KEvents.</li>
+                                <li><strong>source</strong> &#8211; String containing contents of kernel file.</li>
+                                <li><strong>clevents</strong> &#8211; Dictionary containing pyopencl.Events.</li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.build_kernel">
+<code class="descname">build_kernel</code><span class="sig-paren">(</span><em>gpus</em>, <em>cpus</em>, <em>ctxs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.build_kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.build_kernel" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Builds Kernels from the directory kernel_src/ for each device and stores binaries in self.kernel_objects dict.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>gpus</strong> (<em>list of pyopencl.device objects</em>) &#8211; List of OpenCL GPU Devices</li>
+                                    <li><strong>cpus</strong> (<em>list of pyopencl.device objects</em>) &#8211; List of OpenCL GPU Devices</li>
+                                    <li><strong>ctxs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of contexts keyed by device types</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Dictionary of key: value pairs where key is device type and value is the device specific binary compiled for the kernel</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last"><a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.create_buffers">
+<code class="descname">create_buffers</code><span class="sig-paren">(</span><em>ctx</em>, <em>obj</em>, <em>size_percent=100</em>, <em>offset_percent=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.create_buffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.create_buffers" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Creates buffers for a Context while respecting partition information provided for every buffer associated with the kernel.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first last simple">
+                                    <li><strong>ctx</strong> (<em>pyopencl.Context</em>) &#8211; PyOpenCL Context for either a CPU or a GPU device</li>
+                                    <li><strong>obj</strong> (<em>String</em>) &#8211; Device Type</li>
+                                    <li><strong>size_percent</strong> (<em>Float</em>) &#8211; Size of valid buffer space for device</li>
+                                    <li><strong>offset_percent</strong> &#8211; Offset parameter representing</li>
+                                    <li><strong>kwargs</strong> &#8211; </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.dispatch">
+<code class="descname" id=dp>dispatch</code><span class="sig-paren">(</span><em>gpu</em>, <em>cpu</em>, <em>ctxs</em>, <em>cmd_qs</em>, <em>dep=None</em>, <em>partition=None</em>, <em>callback=&lt;function blank_fn&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.dispatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.dispatch" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Dispatches Kernel with given partition class value (0,1,2,...,10). 0 is for complete CPU and 10 is for complete GPU.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>gpu</strong> (<em>Integer</em>) &#8211; Denotes the index of GPU device in cmd_qs[&#8216;gpu&#8217;] list or is -1 if we don&#8217;t want to use device of this type.</li>
+                                    <li><strong>cpu</strong> (<em>Integer</em>) &#8211; Denotes the index of CPU device in cmd_qs[&#8216;cpu&#8217;] list or is -1 if we don&#8217;t want to use device of this type.</li>
+                                    <li><strong>ctxs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of Contexts for CPU and GPU devices.</li>
+                                    <li><strong>cmd_qs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of list of Command Queues</li>
+                                    <li><strong>dep</strong> &#8211; PyOpenCL Event on which subsequent write operations will be dependent on stored in a list </li>
+                                    <li><strong>partition</strong> (<em>Integer</em>) &#8211; Integer from 0 to 10 or None denoting partition class value.</li>
+                                    <li><strong>callback</strong> &#8211; A function that will run on the host side once the kernel completes execution on the device. Handle unexpected arguments.</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Tuple with first element being the starting time (host side) of dispatch and second element being list of kernel events for both CPU and GPU devices</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last">Tuple</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.dispatch_multiple">
+<code class="descname">dispatch_multiple</code><span class="sig-paren">(</span><em>gpus</em>, <em>cpus</em>, <em>ctxs</em>, <em>cmd_qs</em>, <em>dep=None</em>, <em>partition=None</em>, <em>callback=&lt;function blank_fn&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.dispatch_multiple"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.dispatch_multiple" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Dispatch Kernel across multiple devices with given partition class value (0,1,2,...,10). 0 is for complete CPU and 10 is for complete GPU.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>gpus</strong> (<em>list</em>) &#8211; A list of gpu device ids</li>
+                                    <li><strong>cpus</strong> (<em>list</em>) &#8211; A list of cpu device ids</li>
+                                    <li><strong>ctxs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of Contexts for CPU and GPU devices.</li>
+                                    <li><strong>cmd_qs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of list of Command Queues</li>
+                                    <li><strong>dep</strong> &#8211; PyOpenCL Event on which subsequent write operations will be dependent on stored in a list</li>
+                                    <li><strong>partition</strong> (<em>Integer</em>) &#8211; Integer from 0 to 10 or None denoting partition class value.</li>
+                                    <li><strong>callback</strong> &#8211; A function that will run on the host side once the kernel completes execution on the device. Handle unexpected arguments.</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Tuple with the first element being the starting time (host side) of dispatch and second element being list of kernel events for both CPU and GPU devices</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last">Tuple</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.enqueue_nd_range_kernel">
+<code class="descname">enqueue_nd_range_kernel</code><span class="sig-paren">(</span><em>queue</em>, <em>q_id</em>, <em>obj</em>, <em>size_percent=100</em>, <em>offset_percent=0</em>, <em>deps=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.enqueue_nd_range_kernel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.enqueue_nd_range_kernel" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Enqueues ND Range Kernel Operation for a kernel</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>queue</strong> (<em>pyopencl.CommandQueue</em>) &#8211; OpenCL Command Queue</li>
+                                    <li><strong>q_id</strong> (<em>Integer</em>) &#8211; Framework specific id assigned to Command Queue</li>
+                                    <li><strong>obj</strong> (<em>String</em>) &#8211; OpenCL Device Type</li>
+                                    <li><strong>size_percent</strong> (<em>Integer</em>) &#8211; Percentage of problem space to be processed</li>
+                                    <li><strong>offset_percent</strong> (<em>Integer</em>) &#8211; Percentage for offset required for selection of host array space to be copied to buffer</li>
+                                    <li><strong>deps</strong> (<em>list of pyopencl.Event Objects</em>) &#8211; PyOpenCL Event on which subsequent ndrange operations will be dependent on stored in a list</li>
+                                    <li><strong>kwargs</strong> &#8211; </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Barrier Event signifying end of ndrange operation</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last">pyopencl.event</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.enqueue_read_buffers">
+<code class="descname">enqueue_read_buffers</code><span class="sig-paren">(</span><em>queue</em>, <em>q_id</em>, <em>obj</em>, <em>size_percent=100</em>, <em>offset_percent=0</em>, <em>deps=None</em>, <em>callback=&lt;function blank_fn&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.enqueue_read_buffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.enqueue_read_buffers" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Enqueue Read Buffer operations for a kernel.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>queue</strong> (<em>pyopencl.CommandQueue</em>) &#8211; OpenCL Command Queue</li>
+                                    <li><strong>q_id</strong> (<em>Integer</em>) &#8211; Framework specific id assigned to Command Queue</li>
+                                    <li><strong>obj</strong> (<em>String</em>) &#8211; OpenCL Device Type</li>
+                                    <li><strong>size_percent</strong> (<em>Integer</em>) &#8211; Percentage of problem space to be processed</li>
+                                    <li><strong>offset_percent</strong> (<em>Integer</em>) &#8211; Percentage for offset required for selection of host array space to be copied to buffer</li>
+                                    <li><strong>deps</strong> (<em>list of pyopencl.Event Objects</em>) &#8211; PyOpenCL Event on which subsequent ndrange operations will be dependent on stored in a list</li>
+                                    <li><strong>callback</strong> (<em>python function</em>) &#8211; Custom callback function</li>
+                                    <li><strong>kwargs</strong> &#8211; </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Barrier Event signifying end of read operation</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last">pyopencl.event</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.enqueue_write_buffers">
+<code class="descname">enqueue_write_buffers</code><span class="sig-paren">(</span><em>queue</em>, <em>q_id</em>, <em>obj</em>, <em>size_percent=100</em>, <em>offset_percent=0</em>, <em>deps=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.enqueue_write_buffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.enqueue_write_buffers" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Enqueues list of write buffer operations to the OpenCL Runtime.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>queue</strong> (<em>pyopencl.CommandQueue</em>) &#8211; Command Queue for a CPU or a GPU device</li>
+                                    <li><strong>q_id</strong> (<em>Integer</em>) &#8211; ID of queue</li>
+                                    <li><strong>obj</strong> (<em>String</em>) &#8211; Device Type (CPU or GPU)</li>
+                                    <li><strong>size_percent</strong> (<em>Integer</em>) &#8211; Percentage of problem space to be processed</li>
+                                    <li><strong>offset_percent</strong> (<em>Integer</em>) &#8211; Percentage for offset required for selection of host array space to be copied to buffer</li>
+                                    <li><strong>deps</strong> (<em>list of pyopencl.Event Objects</em>) &#8211; Initial PyOpenCL Event on which subsequent write operations will be dependent stored in a list</li>
+                                    <li><strong>kwargs</strong> &#8211; </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Barrier Event signifying end of write operation</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last">pyopencl.event</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.eval_vargs">
+<code class="descname">eval_vargs</code><span class="sig-paren">(</span><em>partition=None</em>, <em>size_percent=0</em>, <em>offset_percent=0</em>, <em>reverse=False</em>, <em>exact=-1</em>, <em>total=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.eval_vargs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.eval_vargs" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Method to evaluate kernel arguments. Evaluates variable kernel arguments from the specification file if they are an expression against size percent.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first last simple">
+                                    <li><strong>partition</strong> (<em>Integer</em>) &#8211; Partition Class Value</li>
+                                    <li><strong>size_percent</strong> (<em>Integer</em>) &#8211; Percentage of problem space to be processed on device</li>
+                                    <li><strong>offset_percent</strong> (<em>Integer</em>) &#8211; Offset Percentage required</li>
+                                    <li><strong>reverse</strong> (<em>Boolean</em>) &#8211; Flag for inverting size and offset calculations for respective devices</li>
+                                    <li><strong>exact</strong> &#8211; Flag that states whether percentage of problem space is greater than 50 or not (0 for percent &lt; 50, 1 for percent &gt;= 50)</li>
+                                    <li><strong>type</strong> &#8211; Integer</li>
+                                    <li><strong>total</strong> (<em>Integer</em>) &#8211; Percentage of total problem space (Default value: 100)</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_buffer">
+<code class="descname">get_buffer</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_buffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_buffer" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Returns cl.Buffer objects given its parameter position in the kernel.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>pos</strong> &#8211; Position of buffer argument in list of kernel arguments</td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Type:</th>
+                                <td class="field-body">Integer</td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">PyOpenCL Buffer Object for selected buffer</td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">pyopencl.Buffer</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_buffer_info">
+<code class="descname">get_buffer_info</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_buffer_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_buffer_info" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Returns buffer information stored in Kernel specification file for buffer at given position in Kernel Arguments. Used to make reusable buffers.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>pos</strong> (<em>Integer</em>) &#8211; Position of buffer argument in list of kernel arguments</td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">Returns a dictionary of key:value pairs representing information of selected buffer in self.buffer_info</td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body"><a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_buffer_info_location">
+<code class="descname">get_buffer_info_location</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_buffer_info_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_buffer_info_location" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Returns buffer_info location at given position. Used to make reusable buffers.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>pos</strong> (<em>Integer</em>) &#8211; Position of buffer argument in list of kernel arguments</td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">Tuple(key, i) where key represents type of buffer access and i represents the id for that buffer in self.buffer_info[key]</td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">Tuple</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_data" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Returns the data of a particular kernel argument given its parameter position in the kernel. Used to load dependent data.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>pos</strong> (<em>Integer</em>) &#8211; Position of buffer argument in list of kernel arguments</td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">Data stored in buffer specified by parameter position in kernel</td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">Numpy array</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_device_requirement">
+<code class="descname">get_device_requirement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_device_requirement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_device_requirement" title="Permalink to this definition">¶</a></dt>
+                        <dd></dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_num_global_work_items">
+<code class="descname">get_num_global_work_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_num_global_work_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_num_global_work_items" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Returns the total number of global work items based on global work size.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">Total number of global work items considering all dimensions</td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">Integer</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_partition_multiples">
+<code class="descname">get_partition_multiples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_partition_multiples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_partition_multiples" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Determines partition multiples based on work dimension. This method returns a list of numbers based on global work size and local work size according to which the partition sizes will be determined.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">List of integers representing partition multiples for each dimension</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.get_slice_values">
+<code class="descname">get_slice_values</code><span class="sig-paren">(</span><em>buffer_info</em>, <em>size_percent</em>, <em>offset_percent</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.get_slice_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.get_slice_values" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Returns Element offset, size based on size_percent, offset_percent.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first simple">
+                                    <li><strong>buffer_info</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of key:value pairs representing information
+                                      of one buffer</li>
+                                    <li><strong>size_percent</strong> (<em>Float</em>) &#8211; Size of buffer to be processed (in percentage)</li>
+                                    <li><strong>offset_percent</strong> (<em>Float</em>) &#8211; Offset for given buffer (in percentage)</li>
+                                    <li><strong>kwargs</strong> &#8211; </li>
+                                  </ul>
+                                </td>
+                              </tr>
+                              <tr class="field-even field">
+                                <th class="field-name">Returns:</th>
+                                <td class="field-body">
+                                  <p class="first">Tuple representing element offset and number of elements</p>
+                                </td>
+                              </tr>
+                              <tr class="field-odd field">
+                                <th class="field-name">Return type:</th>
+                                <td class="field-body">
+                                  <p class="first last">Tuple</p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.load_data">
+<code class="descname">load_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.load_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.load_data" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Populates all host input arrays with given data.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>data</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary structure comprising user defined data for host
+                                  input arrays</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.random_data">
+<code class="descname">random_data</code><span class="sig-paren">(</span><em>low=0</em>, <em>hi=4096</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.random_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.random_data" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Generates random data numpy arrays according to buffer type so that it can be enqueued to buffer. Can be used for testing. Will not generate random data for those buffers that are already enqueued. Creates empty arrays for read-only
+                            buffers. Populates values for self.data dictionary.</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body">
+                                  <ul class="first last simple">
+                                    <li><strong>low</strong> (<em>Integer</em>) &#8211; Lower value of data array size</li>
+                                    <li><strong>hi</strong> (<em>Integer</em>) &#8211; Higher value of data array size</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.release_buffers">
+<code class="descname">release_buffers</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.release_buffers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.release_buffers" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Releases all buffers of a Kernel Object for a particular device given in obj</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>obj</strong> (<em>String</em>) &#8211; Specifies Kernel object</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.release_host_arrays">
+<code class="descname">release_host_arrays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.release_host_arrays"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.release_host_arrays" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Forcefully releases all host array data after completion of a kernel task</p>
+                        </dd>
+                      </dl>
+
+                      <dl class="method">
+                        <dt id="pyschedcl.pyschedcl.Kernel.set_kernel_args">
+<code class="descname">set_kernel_args</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#Kernel.set_kernel_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.Kernel.set_kernel_args" title="Permalink to this definition">¶</a></dt>
+                        <dd>
+                          <p>Sets Kernel Arguments (Buffers and Variable Arguments).</p>
+                          <table class="docutils field-list" frame="void" rules="none">
+                            <col class="field-name" />
+                            <col class="field-body" />
+                            <tbody valign="top">
+                              <tr class="field-odd field">
+                                <th class="field-name">Parameters:</th>
+                                <td class="field-body"><strong>obj</strong> (<em>String</em>) &#8211; Device Type (cpu or gpu)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </dd>
+                      </dl>
+
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.blank_fn">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">blank_fn</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#blank_fn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.blank_fn" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Does nothing. Used as dummy function for callback events.</p>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.build_kernel_from_info">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">build_kernel_from_info</code><span class="sig-paren">(</span><em>info_file_name</em>, <em>gpus</em>, <em>cpus</em>, <em>ctxs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#build_kernel_from_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.build_kernel_from_info" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Create Kernel object from info.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>info_file_name</strong> (<em>String</em>) &#8211; Name of OpenCL Kernel Specification File (JSON)</li>
+                                <li><strong>gpus</strong> (<em>list of pyopencl.device objects</em>) &#8211; List of OpenCL GPU devices</li>
+                                <li><strong>cpus</strong> (<em>list of pyopencl.device objects</em>) &#8211; List of OpenCL CPU devices</li>
+                                <li><strong>ctxs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of contexts keyed by device types</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Dictionary of key: value pairs where key is device type and value is the device specific binary compiled for the kernel</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last"><a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.compare_and_swap">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">compare_and_swap</code><span class="sig-paren">(</span><em>testval</em>, <em>newval</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#compare_and_swap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.compare_and_swap" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Software test and lock routine used for enforcing mutual exclusion across multiple callback threads.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>testval</strong> (<em>list</em>) &#8211; List representing testing lock value</li>
+                                <li><strong>newval</strong> (<em>list</em>) &#8211; List representing new lock value</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Returns list representing old lock value.</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">list</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.create_command_queue_for_each">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">create_command_queue_for_each</code><span class="sig-paren">(</span><em>devs</em>, <em>ctx</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#create_command_queue_for_each"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.create_command_queue_for_each" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Creates command queue for a specified number of devices belonging to a context provided as argument</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>devs</strong> (<em>List of pyopencl.device objects</em>) &#8211; List of OpenCL devices</li>
+                                <li><strong>ctx</strong> &#8211; OpenCL Context</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Rtype ctx:</th>
+                            <td class="field-body">
+                              <p class="first">pyopencl.context object</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">List of OpenCL Command Queues</p>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">list of pyopencl.CommandQueue objects</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.ctype">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">ctype</code><span class="sig-paren">(</span><em>dtype</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#ctype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.ctype" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Convert a string datatype to corresponding Numpy datatype. User can also define new datatypes using user_defined parameter.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body"><strong>dtype</strong> (<em>String</em>) &#8211; Datatype name</td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">Numpy Datatype corresponding to dtype</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.dump_device_history">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">dump_device_history</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#dump_device_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.dump_device_history" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Dumps device history to debug.log file.</p>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.generate_unique_id">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">generate_unique_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#generate_unique_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.generate_unique_id" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Generates and returns a unique id string.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">Unique ID</td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">String</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.get_multiple_devices">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">get_multiple_devices</code><span class="sig-paren">(</span><em>platform</em>, <em>dev_type</em>, <em>num_devs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#get_multiple_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.get_multiple_devices" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Get Multiple Devices given a platform and dev type.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>platform</strong> (<em>pyopencl.platform object</em>) &#8211; OpenCL Platform pertaining to some vendor</li>
+                                <li><strong>dev_type</strong> (<em>pyopencl.device_type object</em>) &#8211; Device Type (CPU or GPU)</li>
+                                <li><strong>num_devs</strong> (<em>Integer</em>) &#8211; Number of Devices</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">List of OpenCL devices</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">list of pyopencl.device objects</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.get_platform">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">get_platform</code><span class="sig-paren">(</span><em>vendor_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#get_platform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.get_platform" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Gets platform given a vendor name</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body"><strong>vendor_name</strong> (<a class="reference external" href="https://docs.python.org/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Name of OpenCL Vendor</td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">OpenCL platform related with vendor name</td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">PyOpenCL platform object</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.get_single_device">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">get_single_device</code><span class="sig-paren">(</span><em>platform</em>, <em>dev_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#get_single_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.get_single_device" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Get Single Device given a platform and dev type.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>platform</strong> (<em>pyopencl.platform object</em>) &#8211; OpenCL platform pertaining to some vendor</li>
+                                <li><strong>dev_type</strong> (<em>pyopencl.device_type object</em>) &#8211; Device Type (CPU or GPU)</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">List containing one OpenCL device</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">List containing one pyopencl.device object</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.get_sub_devices">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">get_sub_devices</code><span class="sig-paren">(</span><em>platform</em>, <em>dev_type</em>, <em>num_devs</em>, <em>total_compute=16</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#get_sub_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.get_sub_devices" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Get Sub Devices given a platform and dev type.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>platform</strong> (<em>pyopencl.platform object</em>) &#8211; OpenCL platform pertaining to some vendor</li>
+                                <li><strong>dev_type</strong> (<em>pyopencl.device_type object</em>) &#8211; Device Type (CPU or GPU)</li>
+                                <li><strong>num_devs</strong> (<em>Integer</em>) &#8211; Number of devices</li>
+                                <li><strong>total_compute</strong> (<em>Integer</em>) &#8211; Total Number of Compute Units for an OpenCL device</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">List of OpenCL subdevices for a particular device</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">list of pyopencl.device objects</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.host_initialize">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">host_initialize</code><span class="sig-paren">(</span><em>num_gpus=4</em>, <em>num_cpus=2</em>, <em>local=False</em>, <em>cpu_platform='Intel(R) OpenCL'</em>, <em>gpu_platform='NVIDIA CUDA'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#host_initialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.host_initialize" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Set local=True if your device doesn&#8217;t support GPU. But you still want to pretend as if you have one.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>num_gpus</strong> (<em>Integer</em>) &#8211; Number of GPU Devices</li>
+                                <li><strong>num_cpus</strong> (<em>Integer</em>) &#8211; Number of CPU Devices</li>
+                                <li><strong>local</strong> (<em>Boolean</em>) &#8211; Flag for Specifying whether platform supports GPU or not</li>
+                                <li><strong>cpu_platform</strong> (<em>String</em>) &#8211; CPU Platform Name</li>
+                                <li><strong>gpu_platform</strong> (<em>String</em>) &#8211; GPU Platform Name</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Returns a tuple comprising command queue dictionary, context dictionary and list of OpenCL CPU and GPU devices.</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">Tuple</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.host_synchronize">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">host_synchronize</code><span class="sig-paren">(</span><em>cmd_qs</em>, <em>events</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#host_synchronize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.host_synchronize" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Ensures that all operations in all command queues and associated events have finished execution</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first last simple">
+                                <li><strong>cmd_qs</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary of list of Command Queues</li>
+                                <li><strong>events</strong> (<em>list of pyopencl.events</em>) &#8211; List of OpenCL Events</li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.make_ctype">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">make_ctype</code><span class="sig-paren">(</span><em>dtype</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#make_ctype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.make_ctype" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Creates a vector datatype.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body"><strong>dtype</strong> (<em>String</em>) &#8211; Datatype name</td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">numpy datatype corresponding to dtype</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.make_user_defined_dtype">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">make_user_defined_dtype</code><span class="sig-paren">(</span><em>ctxs</em>, <em>name</em>, <em>definition</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#make_user_defined_dtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.make_user_defined_dtype" title="Permalink to this definition">¶</a></dt>
+                    <dd></dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.multiple_round">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">multiple_round</code><span class="sig-paren">(</span><em>elms</em>, <em>percent</em>, <em>multiples</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#multiple_round"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.multiple_round" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Partitions such that the partitioned datasets are multiples of given number.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>elms</strong> (<em>Integer</em>) &#8211; Total number of elements of buffer</li>
+                                <li><strong>percent</strong> (<em>Integer</em>) &#8211; Percentage of problem space to be processed by one device</li>
+                                <li><strong>multiples</strong> (<em>list of integers</em>) &#8211; List of integers representing partition multiples for each dimension</li>
+                                <li><strong>kwargs</strong> &#8211; </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Percentage of buffer space to be partitioned for one device</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">Integer</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.notify_callback">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">notify_callback</code><span class="sig-paren">(</span><em>kernel</em>, <em>device</em>, <em>dev_no</em>, <em>event_type</em>, <em>events</em>, <em>host_event_info</em>, <em>callback=&lt;function blank_fn&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#notify_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.notify_callback" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>A wrapper function that generates and returns a call-back function based on parameters. This callback function is run whenever a enqueue operation finishes execution. User can suitably modify callback functions to carry out further
+                        processing run after completion of enqueue read buffers operation indicating completion of a kernel task.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first last simple">
+                                <li><strong>kernel</strong> (<em>pyschedcl.Kernel object</em>) &#8211; Kernel Object</li>
+                                <li><strong>device</strong> (<em>String</em>) &#8211; Device Type (CPU or GPU)</li>
+                                <li><strong>dev_no</strong> (<em>Integer</em>) &#8211; PySchedCL specific device id</li>
+                                <li><strong>event_type</strong> (<em>String</em>) &#8211; Event Type (Write, NDRange, Read)</li>
+                                <li><strong>events</strong> (<em>list of pyopencl.Event objects</em>) &#8211; List of Events associated with an Operation</li>
+                                <li><strong>host_event_info</strong> (<a class="reference internal" href="#pyschedcl.pyschedcl.HostEvents" title="pyschedcl.pyschedcl.HostEvents"><em>HostEvents</em></a>) &#8211; HostEvents object associated with Kernel</li>
+                                <li><strong>callback</strong> (<em>python function</em>) &#8211; Custom Callback function for carrying out further post processing if required.</li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.part_round">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">part_round</code><span class="sig-paren">(</span><em>elms</em>, <em>percent</em>, <em>exact=-1</em>, <em>total=100</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyschedcl.pyschedcl.part_round" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Partitions dataset in a predictable way.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>elms</strong> (<em>Integer</em>) &#8211; Total Number of elements</li>
+                                <li><strong>percent</strong> &#8211; Percentage of problem space to be processed on one device</li>
+                                <li><strong>type</strong> &#8211; Integer</li>
+                                <li><strong>exact</strong> &#8211; Flag that states whether percentage of problem space is greater than 50 or not (0 for percent &lt; 50, 1 for percent &gt;= 50)</li>
+                                <li><strong>type</strong> &#8211; Integer</li>
+                                <li><strong>total</strong> (<em>Integer</em>) &#8211; Percentage of total problem space (Default value: 100)</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Number of elements of partitioned dataset</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">Integer</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.partition_round">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">partition_round</code><span class="sig-paren">(</span><em>elms</em>, <em>percent</em>, <em>exact=-1</em>, <em>total=100</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#partition_round"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.partition_round" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Partitions dataset in a predictable way.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>elms</strong> (<em>Integer</em>) &#8211; Total Number of elements</li>
+                                <li><strong>percent</strong> &#8211; Percentage of problem space to be processed on one device</li>
+                                <li><strong>type</strong> &#8211; Integer</li>
+                                <li><strong>exact</strong> &#8211; Flag that states whether percentage of problem space is greater than 50 or not (0 for percent &lt; 50, 1 for percent &gt;= 50)</li>
+                                <li><strong>type</strong> &#8211; Integer</li>
+                                <li><strong>total</strong> (<em>Integer</em>) &#8211; Percentage of total problem space (Default value: 100)</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Number of elements of partitioned dataset</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">Integer</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.plot_gantt_chart_graph">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">plot_gantt_chart_graph</code><span class="sig-paren">(</span><em>device_history</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#plot_gantt_chart_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.plot_gantt_chart_graph" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Plots Gantt Chart and Saves as png.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first last simple">
+                                <li><strong>device_history</strong> (<a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Dictionary Structure containing timestamps of
+                                  every kernel on every device</li>
+                                <li><strong>filename</strong> (<em>String</em>) &#8211; Name of file where the Gantt chart is saved. The plot is saved in gantt_charts folder.</li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                  <dl class="function">
+                    <dt id="pyschedcl.pyschedcl.test_and_set">
+<code class="descclassname">pyschedcl.pyschedcl.</code><code class="descname">test_and_set</code><span class="sig-paren">(</span><em>testval</em>, <em>newval</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyschedcl/pyschedcl.html#test_and_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyschedcl.pyschedcl.test_and_set" title="Permalink to this definition">¶</a></dt>
+                    <dd>
+                      <p>Software test and lock routine used for enforcing mutual exclusion across callback threads and main host thread while accessing ready queue and device counters.</p>
+                      <table class="docutils field-list" frame="void" rules="none">
+                        <col class="field-name" />
+                        <col class="field-body" />
+                        <tbody valign="top">
+                          <tr class="field-odd field">
+                            <th class="field-name">Parameters:</th>
+                            <td class="field-body">
+                              <ul class="first simple">
+                                <li><strong>testval</strong> (<em>list</em>) &#8211; List representing testing lock value</li>
+                                <li><strong>newval</strong> (<em>list</em>) &#8211; List representing new lock value</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr class="field-even field">
+                            <th class="field-name">Returns:</th>
+                            <td class="field-body">
+                              <p class="first">Returns list representing old lock value.</p>
+                            </td>
+                          </tr>
+                          <tr class="field-odd field">
+                            <th class="field-name">Return type:</th>
+                            <td class="field-body">
+                              <p class="first last">list</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                  </dl>
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <footer>
+
+            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+
+              <a href="json_tutorial.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+            </div>
+
+
+            <hr/>
+
+            <div role="contentinfo">
+              <p>
+                &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+
+              </p>
+            </div>
+            Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+          </footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT: './',
+      VERSION: '1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '.html',
+      HAS_SOURCE: true
+    };
+  </script>
+  <script type="text/javascript" src="_static/jquery.js"></script>
+  <script type="text/javascript" src="_static/underscore.js"></script>
+  <script type="text/javascript" src="_static/doctools.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function() {
+      SphinxRtdTheme.StickyNav.enable();
+    });
+  </script>
+
+
+</body>
+
+</html>

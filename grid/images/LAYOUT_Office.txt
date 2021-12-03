@@ -1,0 +1,414 @@
+BUILDING bldg-1
+
+STOREY SingleStorey [ 
+
+Rooms [ 
+sp-1-Open( room1 )
+sp-2-Open( room2 )
+sp-3-Office( room3 )
+sp-4-Office( room4 )
+sp-5-Office( room5 )
+sp-6-Office( room6 )
+sp-7-Office( room7 )
+sp-8-Office( room8 )
+sp-9-Office( room9 )
+sp-10-Office( room10 )
+sp-11-Office( room11 )
+sp-12-Office( room12 )
+sp-13-Office( room13 )
+sp-14-Office( room14 )
+sp-15-Stairwell( room15 )
+sp-16-Office( room16 )
+sp-17-Office( room17 )
+sp-18-Office( room18 )
+sp-19-Mens_Room( room19 )
+sp-20-Ladies_Room( room20 )
+sp-21-MechanicalElectrical( room21 )
+sp-22-Mens_Room( room22 )
+sp-23-Ladies_Room( room23 )
+sp-24-MechanicalElectrical( room24 )
+sp-25-Lounge( room25 )
+sp-26-Office( room26 )
+sp-27-Office( room27 )
+sp-28-Office( room28 )
+sp-29-Office( room29 )
+sp-30-Stairwell( room30 )
+sp-31-Conference_Room( room31 )
+sp-32-Office( room32 )
+sp-33-Office( room33 )
+ ] 
+
+Exwalls [ 
+su-1( e1 )
+su-2( e2 )
+su-3( e3 )
+su-4( e4 )
+su-5( e5 )
+su-6( e6 )
+su-7( e7 )
+su-8( e8 )
+su-9( e9 )
+su-10( e10 )
+su-11( e11 )
+su-12( e12 )
+su-13( e13 )
+su-14( e14 )
+su-15( e15 )
+su-16( e16 )
+su-17( e17 )
+su-18( e18 )
+su-19( e19 )
+su-20( e20 )
+su-21( e21 )
+su-22( e22 )
+su-23( e23 )
+su-24( e24 )
+su-25( e25 )
+su-27( e26 )
+su-28( e27 )
+su-55( e28 )
+su-56( e29 )
+su-57( e30 )
+su-58( e31 )
+su-59( e32 )
+su-60( e33 )
+su-61( e34 )
+su-62( e35 )
+su-63( e36 )
+su-64( e37 )
+su-65( e38 )
+su-66( e39 )
+su-67( e40 )
+su-68( e41 )
+su-69( e42 )
+su-70( e43 )
+su-71( e44 )
+su-72( e45 )
+su-73( e46 )
+su-74( e47 )
+su-75( e48 )
+su-76( e49 )
+su-77( e50 )
+su-78( e51 )
+su-79( e52 )
+su-80( e53 )
+su-101( e54 )
+su-102( e55 )
+su-107( e56 )
+su-111( e57 )
+su-112( e58 )
+su-116( e59 )
+su-117( e60 )
+su-120( e61 )
+su-123( e62 )
+su-124( e63 )
+su-126( e64 )
+su-128( e65 )
+su-132( e66 )
+su-137( e67 )
+su-138( e68 )
+su-144( e69 )
+su-149( e70 )
+su-154( e71 )
+su-158( e72 )
+su-163( e73 )
+su-164( e74 )
+su-168( e75 )
+su-172( e76 )
+su-173( e77 )
+su-179( e78 )
+su-184( e79 )
+su-188( e80 )
+su-192( e81 )
+su-194( e82 )
+su-196( e83 )
+su-197( e84 )
+su-199( e85 )
+su-200( e86 )
+su-203( e87 )
+su-206( e88 )
+su-209( e89 )
+su-212( e90 )
+su-215( e91 )
+su-216( e92 )
+su-219( e93 )
+su-222( e94 )
+su-223( e95 )
+ ] 
+
+Inwalls [ 
+su-30( i1 )
+su-31( i2 )
+su-32( i3 )
+su-33( i4 )
+su-34( i5 )
+su-35( i6 )
+su-36( i7 )
+su-37( i8 )
+su-38( i9 )
+su-39( i10 )
+su-40( i11 )
+su-41( i12 )
+su-42( i13 )
+su-43( i14 )
+su-44( i15 )
+su-45( i16 )
+su-46( i17 )
+su-47( i18 )
+su-48( i19 )
+su-49( i20 )
+su-50( i21 )
+su-82( i22 )
+su-83( i23 )
+su-84( i24 )
+su-85( i25 )
+su-86( i26 )
+su-87( i27 )
+su-88( i28 )
+su-89( i29 )
+su-90( i30 )
+su-91( i31 )
+su-92( i32 )
+su-93( i33 )
+su-94( i34 )
+su-95( i35 )
+su-96( i36 )
+su-97( i37 )
+su-98( i38 )
+su-99( i39 )
+su-100( i40 )
+su-104( i41 )
+su-109( i42 )
+su-119( i43 )
+su-122( i44 )
+su-129( i45 )
+su-130( i46 )
+su-134( i47 )
+su-140( i48 )
+su-141( i49 )
+su-142( i50 )
+su-146( i51 )
+su-151( i52 )
+su-156( i53 )
+su-160( i54 )
+su-166( i55 )
+su-170( i56 )
+su-177( i57 )
+su-181( i58 )
+su-187( i59 )
+su-190( i60 )
+su-191( i61 )
+su-198( i62 )
+su-202( i63 )
+su-205( i64 )
+su-208( i65 )
+su-211( i66 )
+su-214( i67 )
+su-218( i68 )
+su-221( i69 )
+ ] 
+
+Connections [ 
+
+ room-wall : room1-[ e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12,e13,e14,e15,e16,e17,e18,e19,e20,e21,e22,e23,e24,e25,e26,e27,i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,i17,i18,i19,i20,i21, ] 
+room2-[ e28,e29,e30,e31,e32,e33,e34,e35,e36,e37,e38,e39,e40,e41,e42,e43,e44,e45,e46,e47,e48,e49,e50,e51,e52,e53,i22,i23,i24,i25,i26,i27,i28,i29,i30,i31,i32,i33,i34,i35,i36,i37,i38,i39,i40, ] 
+room3-[ e54,e55,i1,i41, ] 
+room4-[ e56,i2,i41,i42, ] 
+room5-[ e57,e58,i3,i42, ] 
+room6-[ e59,e60,i22,i43, ] 
+room7-[ e61,i23,i43,i44, ] 
+room8-[ e62,e63,i24,i44, ] 
+room9-[ e64,e65,i4,i45,i46, ] 
+room10-[ e66,i5,i45,i47, ] 
+room11-[ e67,e68,i6,i47,i48,i49,i50, ] 
+room12-[ e69,i7,i48,i49,i50,i51, ] 
+room13-[ e70,i8,i51,i52, ] 
+room14-[ e71,i9,i52,i53, ] 
+room15-[ e72,i10,i11,i12,i53,i54, ] 
+room16-[ e73,e74,i13,i54,i55, ] 
+room17-[ e75,i14,i55,i56, ] 
+room18-[ e76,e77,i15,i56, ] 
+room19-[ i16,i17,i18,i57, ] 
+room20-[ e78,i19,i46,i58, ] 
+room21-[ e79,i20,i21,i57,i58, ] 
+room22-[ i25,i26,i27,i59, ] 
+room23-[ e80,i28,i60,i61, ] 
+room24-[ e81,i29,i30,i59,i60, ] 
+room25-[ e82,e83,e84,i31,i61,i62, ] 
+room26-[ e85,e86,i32,i62,i63, ] 
+room27-[ e87,i33,i63,i64, ] 
+room28-[ e88,i34,i64,i65, ] 
+room29-[ e89,i35,i65,i66, ] 
+room30-[ e90,i36,i37,i66,i67, ] 
+room31-[ e91,e92,i38,i67,i68, ] 
+room32-[ e93,i39,i68,i69, ] 
+room33-[ e94,e95,i40,i69, ] 
+
+Exwall - room
+e1 - [ room1, ] 
+e2 - [ room1, ] 
+e3 - [ room1, ] 
+e4 - [ room1, ] 
+e5 - [ room1, ] 
+e6 - [ room1, ] 
+e7 - [ room1, ] 
+e8 - [ room1, ] 
+e9 - [ room1, ] 
+e10 - [ room1, ] 
+e11 - [ room1, ] 
+e12 - [ room1, ] 
+e13 - [ room1, ] 
+e14 - [ room1, ] 
+e15 - [ room1, ] 
+e16 - [ room1, ] 
+e17 - [ room1, ] 
+e18 - [ room1, ] 
+e19 - [ room1, ] 
+e20 - [ room1, ] 
+e21 - [ room1, ] 
+e22 - [ room1, ] 
+e23 - [ room1, ] 
+e24 - [ room1, ] 
+e25 - [ room1, ] 
+e26 - [ room1, ] 
+e27 - [ room1, ] 
+e28 - [ room2, ] 
+e29 - [ room2, ] 
+e30 - [ room2, ] 
+e31 - [ room2, ] 
+e32 - [ room2, ] 
+e33 - [ room2, ] 
+e34 - [ room2, ] 
+e35 - [ room2, ] 
+e36 - [ room2, ] 
+e37 - [ room2, ] 
+e38 - [ room2, ] 
+e39 - [ room2, ] 
+e40 - [ room2, ] 
+e41 - [ room2, ] 
+e42 - [ room2, ] 
+e43 - [ room2, ] 
+e44 - [ room2, ] 
+e45 - [ room2, ] 
+e46 - [ room2, ] 
+e47 - [ room2, ] 
+e48 - [ room2, ] 
+e49 - [ room2, ] 
+e50 - [ room2, ] 
+e51 - [ room2, ] 
+e52 - [ room2, ] 
+e53 - [ room2, ] 
+e54 - [ room3, ] 
+e55 - [ room3, ] 
+e56 - [ room4, ] 
+e57 - [ room5, ] 
+e58 - [ room5, ] 
+e59 - [ room6, ] 
+e60 - [ room6, ] 
+e61 - [ room7, ] 
+e62 - [ room8, ] 
+e63 - [ room8, ] 
+e64 - [ room9, ] 
+e65 - [ room9, ] 
+e66 - [ room10, ] 
+e67 - [ room11, ] 
+e68 - [ room11, ] 
+e69 - [ room12, ] 
+e70 - [ room13, ] 
+e71 - [ room14, ] 
+e72 - [ room15, ] 
+e73 - [ room16, ] 
+e74 - [ room16, ] 
+e75 - [ room17, ] 
+e76 - [ room18, ] 
+e77 - [ room18, ] 
+e78 - [ room20, ] 
+e79 - [ room21, ] 
+e80 - [ room23, ] 
+e81 - [ room24, ] 
+e82 - [ room25, ] 
+e83 - [ room25, ] 
+e84 - [ room25, ] 
+e85 - [ room26, ] 
+e86 - [ room26, ] 
+e87 - [ room27, ] 
+e88 - [ room28, ] 
+e89 - [ room29, ] 
+e90 - [ room30, ] 
+e91 - [ room31, ] 
+e92 - [ room31, ] 
+e93 - [ room32, ] 
+e94 - [ room33, ] 
+e95 - [ room33, ] 
+
+Inwall - room
+i1 - [ room1,room3, ] 
+i2 - [ room1,room4, ] 
+i3 - [ room1,room5, ] 
+i4 - [ room1,room9, ] 
+i5 - [ room1,room10, ] 
+i6 - [ room1,room11, ] 
+i7 - [ room1,room12, ] 
+i8 - [ room1,room13, ] 
+i9 - [ room1,room14, ] 
+i10 - [ room1,room15, ] 
+i11 - [ room1,room15, ] 
+i12 - [ room1,room15, ] 
+i13 - [ room1,room16, ] 
+i14 - [ room1,room17, ] 
+i15 - [ room1,room18, ] 
+i16 - [ room1,room19, ] 
+i17 - [ room1,room19, ] 
+i18 - [ room1,room19, ] 
+i19 - [ room1,room20, ] 
+i20 - [ room1,room21, ] 
+i21 - [ room1,room21, ] 
+i22 - [ room2,room6, ] 
+i23 - [ room2,room7, ] 
+i24 - [ room2,room8, ] 
+i25 - [ room2,room22, ] 
+i26 - [ room2,room22, ] 
+i27 - [ room2,room22, ] 
+i28 - [ room2,room23, ] 
+i29 - [ room2,room24, ] 
+i30 - [ room2,room24, ] 
+i31 - [ room2,room25, ] 
+i32 - [ room2,room26, ] 
+i33 - [ room2,room27, ] 
+i34 - [ room2,room28, ] 
+i35 - [ room2,room29, ] 
+i36 - [ room2,room30, ] 
+i37 - [ room2,room30, ] 
+i38 - [ room2,room31, ] 
+i39 - [ room2,room32, ] 
+i40 - [ room2,room33, ] 
+i41 - [ room3,room4, ] 
+i42 - [ room4,room5, ] 
+i43 - [ room6,room7, ] 
+i44 - [ room7,room8, ] 
+i45 - [ room9,room10, ] 
+i46 - [ room9,room20, ] 
+i47 - [ room10,room11, ] 
+i48 - [ room11,room12, ] 
+i49 - [ room11,room12, ] 
+i50 - [ room11,room12, ] 
+i51 - [ room12,room13, ] 
+i52 - [ room13,room14, ] 
+i53 - [ room14,room15, ] 
+i54 - [ room15,room16, ] 
+i55 - [ room16,room17, ] 
+i56 - [ room17,room18, ] 
+i57 - [ room19,room21, ] 
+i58 - [ room20,room21, ] 
+i59 - [ room22,room24, ] 
+i60 - [ room23,room24, ] 
+i61 - [ room23,room25, ] 
+i62 - [ room25,room26, ] 
+i63 - [ room26,room27, ] 
+i64 - [ room27,room28, ] 
+i65 - [ room28,room29, ] 
+i66 - [ room29,room30, ] 
+i67 - [ room30,room31, ] 
+i68 - [ room31,room32, ] 
+i69 - [ room32,room33, ] 
+

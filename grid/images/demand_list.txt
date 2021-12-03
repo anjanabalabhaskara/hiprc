@@ -1,0 +1,13 @@
+
+{
+{<start time>, <duration>, <no of occupant>},
+{<start time>, <duration>, <no of occupant>},
+{<start time>, <duration>, <no of occupant>},
+.
+.
+.
+
+}
+
+// Demand no is implicit to the serial no of the demand in the list.
+// the list of demands are incorporated in the LPTA model

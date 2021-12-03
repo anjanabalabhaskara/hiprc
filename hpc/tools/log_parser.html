@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PySchedCL’s documentation! &mdash; PySchedCL 1.0 documentation</title>
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+
+
+
+  <link rel="top" title="PySchedCL 1.0 documentation" href="#" />
+  <link rel="next" title="pyschedcl package" href="pyschedcl.html" />
+
+  <link rel="author" title="About these documents" href="#" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="top" title="PySchedCL documentation" href="index.html" />
+  <link rel="next" title="Installation" href="install.html" />
+  <link rel="prev" title="PySchedCL Environment" href="index.html" />
+
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          <a href="#" class="icon icon-home"> PySchedCL
+
+
+
+          </a>
+
+
+
+
+          <div class="version">
+            1.0
+          </div>
+
+
+
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="partitioning.html">Partitioning</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+            <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+            <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PySchedCL</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+
+
+
+
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="#">Docs</a> &raquo;</li>
+
+              <li>PySchedCL&#8217;s documentation!</li>
+              <li class="wy-breadcrumbs-aside">
+
+                <div class=asetop>
+                	<a href=../index_hpc.php> HPC </a>
+                    |
+                  <a href=genindex.html>index</a> | <a href=pyschedcl.html>modules</a> | <a href="https://github.com/anighose25/pyschedcl">github</a> | <a href=_modules/pyschedcl/pyschedcl.html>source</a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <div class="section" id="pyschedcl-home">
+                <h1>Log Parser <a class="headerlink" href="#pyschedcl-home" title="Permalink to this headline">¶</a></h1>
+                <p>This utility parses the log data generated during execution of the partitioning and scheduling scripts. User can specify the type of info he/she wants to view. By default log_parser will show the logging info for the last created log file. Specifying the name of the log file is also permitted.
+                  <p>User can filter the logging information according to their choice like -
+                    <ul>
+                      <li>Dispatch information</li>
+                      <li>Partition information</li>
+                      <li>Callback information</li>
+                    </ul>By choosing the device type (CPU/GPU) and specific kernel name, the debugging information can be parsed for the specific device type and kernel. By default, it will display data for both CPU and GPU for all available kernels.</p>
+                </p>
+                <div class="toctree-wrapper compound">
+                  <div id="log_dispatch">
+                    <h2>Dispatch</h2>
+                    <p>User can view the debug information regarding dispatch by the command below:</p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./log_parser.py -d -f /logs/atax1_8_512_151544822152_debug.log
+                      <span class="si"></span></pre></div>
+                    </div>
+                    <p>For example, the above command will display the following logging information for the kernel atax1 for partition class value 8 and dataset size 512:
+
+                    </p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:DISPATCH : Dispatch function call for atax_kernel1 starts at 2018-01-09 03:20:21.557783
+
+DEBUG:root:DISPATCH_gpu : Evaluation of kernel arguments for atax_kernel1 on GPU
+
+DEBUG:root:DISPATCH_gpu : Creation of buffers for atax_kernel1 on GPU
+
+DEBUG:root:DISPATCH_gpu : Setting kernel arguments for atax_kernel1 on GPU
+
+DEBUG:root:DISPATCH_gpu :Calling enqueue_write_buffers for GPU
+
+DEBUG:root:DISPATCH_gpu : Calling enqueue_nd_range_kernel for GPU
+
+DEBUG:root:DISPATCH_gpu : Calling enqueue_read_buffers for GPU
+
+DEBUG:root:DISPATCH_cpu : Evaluation of kernel arguments for atax_kernel1 on CPU
+
+DEBUG:root:DISPATCH_cpu : Calling creating_buffers for atax_kernel1 on CPU
+
+DEBUG:root:DISPATCH_cpu : Calling set_kernel_args for atax_kernel1 on CPU
+
+DEBUG:root:DISPATCH_cpu : Calling enqueue_write_buffers for atax_kernel1 on CPU
+
+DEBUG:root:DISPATCH_cpu : Evaluation of enqueue_nd_range_kernel for atax_kernel1 on CPU
+
+DEBUG:root:DISPATCH_cpu : Evaluation of enqueue_read_buffers for atax_kernel1 on CPU
+
+DEBUG:root:DISPATCH : atax_kernel1 ke.dispatch_end 2018-01-09 03:20:21.582657
+
+DEBUG:root:DISPATCH : Evaluation of kernel arguments for atax_kernel1
+
+DEBUG:root:DISPATCH : Number of events 6
+
+DEBUG:root:DISPATCH : Dispatch function call for atax_kernel1 ends at 2018-01-09 03:20:21.584557
+
+                      <span class="si"></span></pre></div>
+                    </div>
+                    <p>As shown above, it displays the steps for <b><a href="pyschedcl.html#dp"> dispatch</a></b> function such as creating buffers, setting kernel arguments, enqueue write, read buffer, enqueue ND range kernel for both CPU and GPU. It also displays the time stamp for the start and the end of dispatch function.
+                    </p>
+                  </div>
+
+                  <div id="log_partition">
+                    <h2>Partition</h2>
+                    <p>User can view the debug information regarding partitioning by the command below:</p>
+
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./log_parser.py -p -f /logs/atax1_8_512_151544822152_debug.log
+                    <span class="si"></span></pre></div>
+                    </div>
+                    <p>For example, the above command will display the following partitioning information for the kernel atax1 for partition class value 8 and dataset size 512:
+
+                    </p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:PARTITION : Creating Input Buffers GPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 262144
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Create_Input_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Create_Input_Buffers_number_of_elements : 209724
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Create_Input_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Create_Input_Buffers_number_of_elements : 512
+
+
+DEBUG:root:PARTITION : Creating Input Buffers CPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 262144
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 52420
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Create_Input_Buffers_element_offset : 209724
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Create_Input_Buffers_number_of_elements : 52420
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Create_Input_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Create_Input_Buffers_number_of_elements : 512
+
+
+                  <span class="si"></span></pre></div>
+                    </div>
+                    <p> This displays the logging information for creating input buffer during partitioning for both GPU and CPU. The datasize was 512. In the atax kernel there are two input buffers- one matrix of 512x512 i.e. 262144 size and a vector of size
+                      512. The matrix is breakable as explained in the <a href="json_tutorial.html">API specification tutorial</a>. The partition class value is 8 which implies 80% of the computation is done in GPU and 20% in CPU. The logging information shows how the buffers are partitioned, the offset
+                      value and number of elements in each buffer.
+                    </p>
+
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:PARTITION : Creating Output Buffers GPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 0
+
+DEBUG:root:PARTITION_gpu: atax_kernel1 Create_Output_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_gpu: atax_kernel1 Create_Output_Buffers_number_of_elements : 412
+
+
+DEBUG:root:PARTITION : Creating Output Buffers CPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 100
+
+DEBUG:root:PARTITION_cpu: atax_kernel1 Create_Output_Buffers_element_offset : 412
+
+DEBUG:root:PARTITION_cpu: atax_kernel1 Create_Output_Buffers_number_of_elements : 100
+
+                  <span class="si"></span></pre></div>
+                    </div>
+
+                    <p> This displays the logging information for creating output buffer during partitioning for both GPU and CPU. The datasize was 512. In the atax kernel there is one output bufferwhich is a column vector of size 512. The output buffer is
+                      breakable as explained in the <a href="json_tutorial.html">API specification tutorial</a>. The partition class value is 8 which implies 80% of the computation is done in GPU and 20% in CPU. The logging information shows how the buffers are partitioned, the offset value and number
+                      of elements in the output buffer.
+                    </p>
+
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:PARTITION : Enqueuing Write Buffers GPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 262144
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Enqueue_Write_Input_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Enqueue_Write_Input_Buffers_number_of_elements : 209724
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Enqueue_Write_Input_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Enqueue_Write_Input_Buffers_number_of_elements : 512
+
+DEBUG:root:PARTITION : Number of write buffers 2
+
+
+DEBUG:root:PARTITION : Enqueuing Write Buffers CPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 262144
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 52420
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Enqueue_Write_Input_Buffers_element_offset : 209724
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Enqueue_Write_Input_Buffers_number_of_elements : 52420
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Enqueue_Write_Input_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Enqueue_Write_Input_Buffers_number_of_elements : 512
+
+DEBUG:root:PARTITION : Number of write buffers 2
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 100
+
+
+  <span class="si"></span></pre></div>
+                    </div>
+
+                    <p> This displays the logging information for enqueuing write buffer from host to device during partitioning for both GPU and CPU. The datasize was 512. In the atax kernel there is one output bufferwhich is a column vector of size 512. The input buffer for matrix is
+                      breakable as explained in the <a href="json_tutorial.html">API specification tutorial</a>. The partition class value is 8 which implies 80% of the computation is done in GPU and 20% in CPU. The logging information shows how the buffers are partitioned, the offset value and number of elements in the output buffer.
+                    </p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:PARTITION : Enqueuing Read Buffers GPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Enqueue_Read_Output_Buffers_element_offset : 0
+
+DEBUG:root:PARTITION_gpu : atax_kernel1 Enqueue_Read_Output_Buffers_number_of_elements : 412
+
+DEBUG:root:PARTITION : Number of read buffers 1
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 100
+
+
+DEBUG:root:PARTITION : Enqueuing Read Buffers CPU
+
+DEBUG:root:PARTITION : atax_kernel1 get_slice_values -> Original Buffer Size: 512
+
+DEBUG:root:PARTITION: get_slice_values -> multiple_round -> partition_round (if exact=1) returns: 100
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Enqueue_Read_Output_Buffers_element_offset : 412
+
+DEBUG:root:PARTITION_cpu : atax_kernel1 Enqueue_Read_Output_Buffers_number_of_elements : 100
+
+DEBUG:root:PARTITION : Number of read buffers 1
+
+<span class="si"></span></pre></div>
+                    </div>
+
+
+
+                    <p> This displays the logging information for enqueuing read buffer from device to host during partitioning for both GPU and CPU. The datasize was 512. In the atax kernel there is one output bufferwhich is a column vector of size 512. The output buffer is
+                      breakable as explained in the <a href="json_tutorial.html">API specification tutorial</a>. The partition class value is 8 which implies 80% of the computation is done in GPU and 20% in CPU. The logging information shows how the buffers are partitioned, the offset value and number of elements in the output buffer.
+                    </p>
+                  </div>
+
+                  <div id="log_callback">
+                    <h2>Callback</h2>
+                    <p> Callback event
+                    </p>
+                    <p>User can view the debug information regarding callback by the command below:</p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./log_parser.py -c PROBE -f /logs/atax1_8_512_151544822152_debug.log
+                  <span class="si"></span></pre></div>
+                    </div>
+                    <p>For example, the above command will display the logging information regarding PROBE callback events for the kernel atax1 for partition class value 8 and dataset size 512:
+
+                    </p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 gpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 gpu KERNEL event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu KERNEL event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu KERNEL event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 gpu READ event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+DEBUG:root:CALLBACK_PROBE : atax_kernel1 cpu WRITE event
+
+                  <span class="si"></span></pre></div>
+                    </div>
+                    <p>As shown above, it displays the event that occupies the critical section at that instance when the callback event is probed.
+                    </p>
+
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./log_parser.py -c RESET -f /logs/atax1_8_512_151544822152_debug.log
+                  <span class="si"></span></pre></div>
+                    </div>
+                    <p>For example, the above command will display the logging information regarding RESET callback events for the kernel atax2 for partition class value 8 and dataset size 512:
+
+                    </p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+DEBUG:root:CALLBACK_RESET : atax_kernel1 Resetting bolt value by gpu WRITE event
+
+DEBUG:root:CALLBACK_RESET : atax_kernel1 Resetting bolt value by cpu KERNEL event
+
+DEBUG:root:CALLBACK_RESET : atax_kernel1 Resetting bolt value by gpu KERNEL event
+
+DEBUG:root:CALLBACK_RESET : atax_kernel1 Resetting bolt value by cpu READ event
+
+DEBUG:root:CALLBACK_RESET : atax_kernel1 Resetting bolt value by gpu READ event
+
+DEBUG:root:CALLBACK_RESET : atax_kernel1 Resetting bolt value by cpu WRITE event
+
+
+                  <span class="si"></span></pre></div>
+                    </div>
+                  </div>
+
+                  <p>As shown above, it displays the events that reset the bolt value once it exits the critical section.
+                  </p>
+
+                  <div class="highlight-bash">
+                    <div class="highlight"><pre><span></span>
+$ ./log_parser.py -c TRIGGERED -f /logs/atax1_8_512_151544822152_debug.log
+                  <span class="si"></span></pre></div>
+                  </div>
+                  <p>For example, the above command will display the following logging information regarding TRIGGERED callback events for the kernel atax2 for partition class value 8 and dataset size 512:
+
+                  </p>
+                  <div class="highlight-bash">
+                    <div class="highlight"><pre><span></span>
+DEBUG:root:CALLBACK_TRIGGERED : atax_kernel1 READ execution finished for device cpu
+
+DEBUG:root:CALLBACK_TRIGGERED : atax_kernel1 WRITE execution finished for device gpu
+
+DEBUG:root:CALLBACK_TRIGGERED : atax_kernel1 KERNEL execution finished for device gpu
+
+DEBUG:root:CALLBACK_TRIGGERED : atax_kernel1 KERNEL execution finished for device cpu
+
+DEBUG:root:CALLBACK_TRIGGERED : atax_kernel1 READ execution finished for device gpu
+
+DEBUG:root:CALLBACK_TRIGGERED : atax_kernel1 WRITE execution finished for device cpu
+
+
+                  <span class="si"></span></pre></div>
+                  </div>
+                  <p>As shown above, it displays the events that has finished execution and notify the callback function.
+                  </p>
+                </div>
+
+
+
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <footer>
+
+          <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+            <a href="commands.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+          </div>
+
+
+          <hr/>
+
+          <div role="contentinfo">
+            <p>
+              &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+
+            </p>
+          </div>
+          Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+        </footer>
+
+      </div>
+  </div>
+
+  </section>
+
+  </div>
+
+
+
+
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT: './',
+      VERSION: '1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '.html',
+      HAS_SOURCE: true
+    };
+  </script>
+  <script type="text/javascript" src="_static/jquery.js"></script>
+  <script type="text/javascript" src="_static/underscore.js"></script>
+  <script type="text/javascript" src="_static/doctools.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function() {
+      SphinxRtdTheme.StickyNav.enable();
+    });
+  </script>
+
+
+</body>
+
+</html>

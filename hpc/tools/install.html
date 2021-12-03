@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PySchedCL’s documentation! &mdash; PySchedCL 1.0 documentation</title>
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+
+
+
+  <link rel="top" title="PySchedCL 1.0 documentation" href="#" />
+  <link rel="next" title="pyschedcl package" href="pyschedcl.html" />
+
+  <link rel="author" title="About these documents" href="#" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="top" title="PySchedCL documentation" href="index.html" />
+  <link rel="next" title="Installation" href="install.html" />
+  <link rel="prev" title="PySchedCL Environment" href="index.html" />
+
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          <a href="#" class="icon icon-home"> PySchedCL  </a>
+          <div class="version">
+            1.0
+          </div>
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+            <li class="toctree-l1 current"><a class="reference internal" href="install.html">Installation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="partitioning.html">Partitioning</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+            <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+            <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PySchedCL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="#">Docs</a> &raquo;</li>
+
+              <li>PySchedCL&#8217;s documentation!</li>
+              <li class="wy-breadcrumbs-aside">
+
+                <div class=asetop>
+                    <a href=../index_hpc.php> HPC </a>
+                    |
+                  <a href=genindex.html>index</a> | <a href=pyschedcl.html>modules</a> | <a href="https://github.com/anighose25/pyschedcl">github</a> | <a href=_modules/pyschedcl/pyschedcl.html> source</a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <div class="section" id="pyschedcl-home">
+                <h1>PySchedCL Installation <a class="headerlink" href="#pyschedcl-home" title="Permalink to this headline">¶</a></h1>
+                <div class="toctree-wrapper compound">
+                  <h2>Requirements</h2>
+                  <ul class="simple">
+                    <li><a class="reference external" href="http://www.python.org/">Python</a> 2.7</li>
+                    <li><a class="reference external" href="https://pypi.python.org/pypi/pip">Pip</a></li>
+                    <li><a href="https://wiki.tiker.net/OpenCLHowTo#How_to_set_up_OpenCL_in_Linux">OpenCL </a>runtime device driver (Minimum 1.2 version)
+                      <ul>
+                        <li><a class="reference external" href="https://software.intel.com/en-us/articles/opencl-drivers">Intel</a></li>
+                        <li><a class="reference external" href="http://support.amd.com/en-us/kb-articles/Pages/OpenCL2-Driver.aspx">AMD</a></li>
+                        <li><a class="reference external" href="https://developer.nvidia.com/opencl">NVIDIA</a></li>
+                      </ul>
+                      <li><a class="reference external" href="https://mathema.tician.de/software/pyopencl/">PyOpenCL</a></li>
+                  </ul>
+
+                  <div class="section" id="installation-from-source">
+                    <span id="download"></span>
+                    <h2>Installation using setup.py<a class="headerlink" title="Permalink to this headline">¶</a></h2>
+                    <p>After completing installation of the dependencies as mentioned in the Requirement section, you need to get the source for the latest stable release from
+                            github like this:</p>
+                            <div class="highlight-bash">
+                              <div class="highlight"><pre><span></span>$ git clone https://github.com/anighose25/pyschedcl
+</pre></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="field-odd field">
+                          <td class="field-body">
+                            <p class="first">Go to PySchedCL folder and run configure.py .</p>
+                            <div class="highlight-bash">
+                              <div class="highlight"><pre><span></span>
+$ cd PySchedCL
+$ python setup.py install_lib
+$ python configure.py   </nav>
+</pre></div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+
+                  <div class="section" id="environment-variables">
+                    <h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+
+                    <dl class="envvar">
+                      <dt id="envvar-PYTHONPATH">
+                      <code class="descname">PYTHONPATH</code><a class="headerlink" href="#envvar-PYTHONPATH" title="Permalink to this definition">¶</a></dt>
+                      <dd>
+                        <p>Path where Python is installed along with colon-separated path of the PySchedCL package</p>
+                      </dd>
+                    </dl>
+
+                    <p>Set these permanently in your <code class="file docutils literal"><span class="pre">~/.bashrc</span></code> file:</p>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>&lt;path-to-pyschedcl-package&gt;:<span class="nv">$PYTHONPATH</span>
+                      </pre></div>
+                    </div>
+
+                  </div>
+
+                  <div class="section" id="test-your-installation">
+                    <h2>Test Installation</h2>
+                    <p>Make sure you have installed the dependencies and  set your <span class="target" id="index-6"></span><a class="reference internal" href="#envvar-PATH"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONPATH</span></code></a>                      environment variable correctly as described in the relevant section above.</p>
+                  </div>
+
+
+
+                </div>
+
+              </div>
+            </div>
+            <footer>
+
+              <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+                <a href="pyschedcl.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+              </div>
+
+
+              <hr/>
+
+              <div role="contentinfo">
+                <p>
+                  &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+
+                </p>
+              </div>
+              Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+            </footer>
+
+          </div>
+        </div>
+
+    </section>
+
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: './',
+        VERSION: '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+    <script type="text/javascript">
+      jQuery(function() {
+        SphinxRtdTheme.StickyNav.enable();
+      });
+    </script>
+
+
+</body>
+
+</html>

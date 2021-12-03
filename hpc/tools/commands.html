@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PySchedCL’s documentation! &mdash; PySchedCL 1.0 documentation</title>
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="top" title="PySchedCL 1.0 documentation" href="#" />
+  <link rel="next" title="pyschedcl package" href="pyschedcl.html" />
+  <link rel="author" title="About these documents" href="#" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="top" title="PySchedCL documentation" href="index.html" />
+  <link rel="next" title="Installation" href="install.html" />
+  <link rel="prev" title="PySchedCL Environment" href="index.html" />
+  <script src="_static/js/modernizr.min.js"></script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          <a href="#" class="icon icon-home"> PySchedCL </a>
+          <div class="version">
+            1.0
+          </div>
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+            <li class="toctree-l1"><a class="reference internal" shref="partitioning.html">Partitioning</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+            <li class="toctree-l1 current"><a class="current reference internal" href="#">Commands</a>
+              <ul>
+                <li class="toctree-l2"><a class="reference internal" href="#command_partition">Partition</a></li>
+                <li class="toctree-l2"><a class="reference internal" href="#command_scheduler">Scheduler</a></li>
+                <li class="toctree-l2"><a class="reference internal" href="#command_opt_partition">Optimal Partition</a></li>
+                <li class="toctree-l2"><a class="reference internal" href="#command_run_scheduler">Run Scheduler</a></li>
+                <li class="toctree-l2"><a class="reference internal" href="#command_log_parser">Log Parser</a></li>
+                <!-- <li class="toctree-l2"><a class="reference internal" href="#command_run_partitions">Run Partitions</a></li> -->
+              </ul>
+            </li>
+            <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+            <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PySchedCL</a>
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="#">Docs</a> &raquo;</li>
+              <li>PySchedCL&#8217;s documentation!</li>
+              <li class="wy-breadcrumbs-aside">
+                <div class=asetop>
+                    <a href=../index_hpc.php> HPC </a>
+                    |
+                  <a href=genindex.html>index</a> | <a href=pyschedcl.html>modules</a> | <a href="https://github.com/anighose25/pyschedcl">github</a> | <a href=_modules/pyschedcl/pyschedcl.html> source</a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+              <div class="section" id="pyschedcl-home">
+                <h1>Command line script <a class="headerlink" href="#pyschedcl-home" title="Permalink to this headline">¶</a></h1>
+                <div class="toctree-wrapper compound">
+                  <div class="section" id="command_partition">
+                    <h2>Partition</h2>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./partition.py [-h] -f FILE [-p PARTITION_CLASS] [-d DATASET_SIZE] [-ng NGPU] [-nc NCPU] [-l] [-g] [-df]
+
+                        <span class="si"></span>                    </pre></div>
+                    </div>
+                    <table border="1" class="docutils">
+                      <colgroup>
+                        <col width="18%" />
+                        <col width="32%" />
+                      </colgroup>
+                      <thead valign="bottom">
+                        <tr class="row-odd">
+                          <th class="head">short</th>
+                          <th class="head">sub-command</th>
+                          <th class="head">description</th>
+                        </tr>
+                      </thead>
+                      <tbody valign="top">
+                        <tr class="row-even">
+                          <td>-h</td>
+                          <td>--HELP</td>
+                          <td>Show this help message and exit</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td>-f</td>
+                          <td>--FILE</td>
+                          <td>Input the json file</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -p</td>
+                          <td>--PARTITION_CLASS</td>
+                          <td> Inputs the partition ratio</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -d</td>
+                          <td>--DATASET_SIZE</td>
+                          <td>Inputs the size of the dataset</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -ng</td>
+                          <td>--NGPU</td>
+                          <td>Number of GPUs</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -nc</td>
+                          <td>--NCPU</td>
+                          <td>Number of CPUs</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -l</td>
+                          <td>--LOG</td>
+                          <td>Flag for turning on LOG</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -g</td>
+                          <td>--GRAPH</td>
+                          <td>Flag for plotting GANTT chart for execution</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -df</td>
+                          <td>--DUMP_OUTPUT_FILE</td>
+                          <td>Flag for dumping output file for a kernel</td>
+                        </tr>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section" id="command_scheduler">
+                    <h2>Scheduler</h2>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./scheduler.py [-h] -f FILE [-s SELECT] [-ng NGPU] [-nc NCPU] [-l] [-g] [-df]
+                        <span class="si"></span>
+                      </pre></div>
+                    </div>
+                    <table border="1" class="docutils">
+                      <colgroup>
+                        <col width="18%" />
+                        <col width="32%" />
+                      </colgroup>
+                      <thead valign="bottom">
+                        <tr class="row-odd">
+                          <th class="head">short</th>
+                          <th class="head">sub-command</th>
+                          <th class="head">description</th>
+                        </tr>
+                      </thead>
+                      <tbody valign="top">
+                        <tr class="row-even">
+                          <td>-h</td>
+                          <td>--HELP</td>
+                          <td>Show this help message and exit</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td>-f</td>
+                          <td>--FILE</td>
+                          <td>Input task file containing list of &lt; json filename, partition class, dataset tuples &gt; </td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td>-s</td>
+                          <td>--SELECT</td>
+                          <td>Scheduling heuristic (baseline, lookahead, adbias)</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -ng</td>
+                          <td>--NGPU</td>
+                          <td>Number of GPUs</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -nc</td>
+                          <td>--NCPU</td>
+                          <td>Number of CPUs</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -l</td>
+                          <td>--LOG</td>
+                          <td>Flag for turning on LOG</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -g</td>
+                          <td>--GRAPH</td>
+                          <td>Flag for plotting GANTT chart for execution</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -df</td>
+                          <td>--DUMP_OUTPUT_FILE</td>
+                          <td>Flag for dumping output file for a kernel</td>
+                        </tr>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section" id="command_opt_partition">
+                    <h2>Get Optimal Partition</h2>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./get_optimal_partition.py [-h] -f FILE [-d DATASET_SIZE] [-nr RUNS]
+                        <span class="si"></span>
+                      </pre></div>
+                    </div>
+                    <table border="1" class="docutils">
+                      <colgroup>
+                        <col width="18%" />
+                        <col width="40%" />
+                      </colgroup>
+                      <thead valign="bottom">
+                        <tr class="row-odd">
+                          <th class="head">short</th>
+                          <th class="head">sub-command</th>
+                          <th class="head">description</th>
+                        </tr>
+                      </thead>
+                      <tbody valign="top">
+                        <tr class="row-even">
+                          <td>-h</td>
+                          <td>--HELP</td>
+                          <td>Show this help message and exit</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td>-f</td>
+                          <td>--FILE</td>
+                          <td>Input the json file</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -d</td>
+                          <td>--DATASET_SIZE</td>
+                          <td>Inputs the size of the dataset</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -nr</td>
+                          <td>--RUNS</td>
+                          <td>Number of runs for executing each partitioned variant of the original program</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section" id="command_run_scheduler">
+                    <h2>Run Scheduler</h2>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./run_scheduler.py [-h] [-f FILE] -t TASKS [-s SELECT] [-ng NGPU] [-nc NCPU] [-nr RUNS]
+
+                        <span class="si"></span>
+                      </pre></div>
+                    </div>
+                    <table border="1" class="docutils">
+                      <colgroup>
+                        <col width="18%" />
+                        <col width="40%" />
+                      </colgroup>
+                      <thead valign="bottom">
+                        <tr class="row-odd">
+                          <th class="head">short</th>
+                          <th class="head">sub-command</th>
+                          <th class="head">description</th>
+                        </tr>
+                      </thead>
+                      <tbody valign="top">
+                        <tr class="row-even">
+                          <td>-h</td>
+                          <td>--HELP</td>
+                          <td>Show this help message and exit</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td>-f</td>
+                          <td>--FILE</td>
+                          <td>Input task file containing list of &lt; json filename, partition class, dataset tuples &gt; </td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td>-s</td>
+                          <td>--SELECT</td>
+                          <td>Scheduling heuristic (baseline, lookahead, adbias)</td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -ng</td>
+                          <td>--NGPU</td>
+                          <td>Number of GPUs</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -nc</td>
+                          <td>--NCPU</td>
+                          <td>Number of CPUs</td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -nr</td>
+                          <td>--RUNS</td>
+                          <td>Number of runs for executing each scheduling algorithm</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="section" id="command_log_parser">
+                    <h2>Log Parser</h2>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./log_parser.py [-h] [-f FILE] [-d] [-p] [-c CALLBACK] [-he] [-ke] [-dvt DEVICE_TYPE] [-k KERNEL_NAME]
+
+                        <span class="si"></span>                    </pre></div>
+                    </div>
+                    <table border="1" class="docutils">
+                      <colgroup>
+                        <col width="18%" />
+                        <col width="32%" />
+                      </colgroup>
+                      <thead valign="bottom">
+                        <tr class="row-odd">
+                          <th class="head">short</th>
+                          <th class="head">sub-command</th>
+                          <th class="head">description</th>
+                        </tr>
+                      </thead>
+                      <tbody valign="top">
+                        <tr class="row-even">
+                          <td>-h</td>
+                          <td>--HELP</td>
+                          <td>Show this help message and exit</td>
+                        </tr>
+
+                        <tr class="row-even">
+                          <td> -d</td>
+                          <td>--DISPATCH</td>
+                          <td>Displays information regarding dispatch events for kernel
+                          </td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -p</td>
+                          <td>--PARTITION_INFO</td>
+                          <td>Displays information regarding partitioning for CPU/GPU/both
+                          </td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -c</td>
+                          <td>--CALLBACK</td>
+                          <td>Displays information regarding callback for PROBE, RESET, TRIGGERED depending on option
+                          </td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -he</td>
+                          <td>--HOST_EVENT</td>
+                          <td>Displays information regarding Host events for CPU/GPU/both
+
+                          </td>
+                        </tr>
+                        <tr class="row-even">
+                          <td> -dvt</td>
+                          <td>--DEVICE_TYPE</td>
+                          <td>Displays LOG information for specified device type - CPU/GPU/BOTH
+                          </td>
+                        </tr>
+                        <tr class="row-odd">
+                          <td> -k</td>
+                          <td>--KERNEL_NAME</td>
+                          <td>Displays LOG information for the specified kernel</td>
+                        </tr>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="section" id="command_data_dump">
+                    <h2>Parse Output Dump</h2>
+                    <div class="highlight-bash">
+                      <div class="highlight"><pre><span></span>
+$ ./parse_output_dump.py &gt;filename.pickle&lt;
+
+                        <span class="si"></span>                    </pre></div>
+                    </div>
+                  </div>
+
+                                </div>
+              </div>
+
+              <footer>
+                <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+                  <a href="contact.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+                </div>
+                <hr/>
+                <div role="contentinfo">
+                  <p>
+                    &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+                  </p>
+                </div>
+                Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+              </footer>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT: './',
+      VERSION: '1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '.html',
+      HAS_SOURCE: true
+    };
+  </script>
+  <script type="text/javascript" src="_static/jquery.js"></script>
+  <script type="text/javascript" src="_static/underscore.js"></script>
+  <script type="text/javascript" src="_static/doctools.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function() {
+      SphinxRtdTheme.StickyNav.enable();
+    });
+  </script>
+
+
+</body>
+
+</html>

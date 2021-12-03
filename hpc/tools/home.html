@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PySchedCL’s documentation! &mdash; PySchedCL 1.0 documentation</title>
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+
+
+
+  <link rel="top" title="PySchedCL 1.0 documentation" href="#" />
+  <link rel="author" title="About these documents" href="#" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="top" title="PySchedCL documentation" href="home.html" />
+  <link rel="next" title="Installation" href="install.html" />
+
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          <a href="#" class="icon icon-home"> PySchedCL
+
+
+
+          </a>
+
+
+
+
+          <div class="version">
+            1.0
+          </div>
+
+
+
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <ul>
+            <li class="toctree-l1 current"><a class="current reference internal" href="home.html">Home</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="partitioning.html">Partitioning</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+            <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+            <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PySchedCL</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+
+
+
+
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="#">Docs</a> &raquo;</li>
+
+              <li>PySchedCL&#8217;s documentation!</li>
+              <li class="wy-breadcrumbs-aside">
+
+                <div class=asetop>
+                    <a href=../index_hpc.php> HPC </a>
+                    | 
+                  <a href=genindex.html>index</a> | <a href=pyschedcl.html>modules</a> | <a href="https://github.com/anighose25/pyschedcl">github</a> | <a href=_modules/pyschedcl/pyschedcl.html> source</a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <div class="section" id="pyschedcl-home">
+                <h1>PySchedCL <a class="headerlink" href="#pyschedcl-home" title="Permalink to this headline">¶</a></h1>
+                <div class="toctree-wrapper compound">
+                  <ul>
+                    PySchedCL is a python based scheduling framework for OpenCL applications. The framework heavily relies on the  PyOpenCL package which provides easy access to the full power of the OpenCL API to the end user.
+                    The primary goal of PySchedCL is to provide a platform for rapid prototyping of high performance
+                    applications on heterogeneous architectures. It is also a research tool for experimenting with various scheduling
+                    and mapping policies for running multiple OpenCL applications for different heterogeneous platforms.
+                    The base API of the tool is written in python leveraging the functionalities of PyOpenCL
+                    for executing OpenCL kernels.
+                    </form>
+
+                  </ul>
+                </div>
+              </div>
+
+              <div class="section" id="pyschedcl-home">
+                <h1>Project Hierarchy <a class="headerlink" href="#p" title="Permalink to this headline">¶</a></h1>
+                <div class="toctree-wrapper compound">
+                  <ul>
+                    <li><b> <a href="pyschedcl.html" >Base Package:  </a></b> The base file pyschedcl.py contains the primary functions for PySchedCL.
+                      The package contains a Kernel class implementation that encapsulates all data related to an OpenCL kernel
+                      task and functions like building programs against OpenCL devices,
+                      loading/generating input data, creating buffers for data transfer and dispatching
+                      an OpenCL kernel to specific devices.
+                    </li>
+                    <li><b> Constants: </b> The file pyschedcl_constants.py contains a list of constant values used by the base package
+                      The values are generated during initial configuration of the tool.
+                      <ul>
+                          <li>CPU_PLATFORM: List of platform names for CPU device
+                          <li>GPU_PLATFORM: List of platform names for GPU device
+                          <li>NUM_CPU_DEVICES: Number of CPU devices available
+                          <li>NUM_GPU_DEVICES: Number of GPU devices available
+                          <li>SOURCE_DIR: Absolute path containing the pyschedcl package.
+                      </ul>
+                      <li><b><a href="partitioning.html" >Partition:</a> </b> The primary script for partitioning an OpenCL kernel, <b> partition.py </b> partitions a single kernel, given a partition class value and dataset size across one CPU and one GPU device.
+
+
+                        <li><b><a href="scheduling.html" >Scheduling:</a> </b> The primary script for scheduling <b>scheduler.py</b> contains all the necessary modules
+                          written using the base PySchedCL API for scheduling an independent set of OpenCL kernels to multiple CPU and GPU devices.
+                          <li><b>utils: </b> Folder containing additional scripts related to pyschedcl.
+                            <ul>
+                              <li> get_optimal_partition.py: Runs a specific kernel for all partition class values to obtain the optimal partition class value.
+                                <li> parse_output_dump.py: Parses output data dump after kernel execution. The output dumps are stored in the outputs folder.
+                                  <li> run_scheduler.py: Runs the scheduling script multiple times for a given set of kernels.
+                                    <li> log_parser.py: Parses the log file generated after execution of a single kernel or multiple kernels to get various event specific information.
+                            </ul>
+                            <li><b>info: </b> Folder containing the kernel specification file for the individual kernels (.json file) as well as task files for scheduling (.task file). Users must dump their kernel specification files and task files in this folder while executing scripts related to PySchedCL.
+                            <li><b> kernel_src: </b> Folder containing the kernel source files for the individual kernels (.cl file). User must dump their kernel source file in this folder to execute PySchedCL.
+                            <li><b> logs: </b>Folder containing the log files generated during execution of <b>partition.py</b> or <b>scheduler.py</b> scripts. The naming  for a log file is kernelName_partitionClass_datasetSize_timestamp_debug.log.
+                            <li><b> gantt_chart: </b>Folder containing Gantt charts generated after execution of <b>partition.py</b> and <b>scheduler.py </b> scripts. The naming convention for the Gantt chart file is kernelName_partitionClass_datasetSize_timestamp.png.
+                            <li><b> outputs: </b>Folder containing data dump outputs generated after execution of <b>partition.py</b> and <b>scheduler.py </b> scripts. The naming convention for the dump file is kernelName_partitionClass_datasetSize_timestamp.pickle.
+
+
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <footer>
+
+            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+              <a href="install.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+            </div>
+
+
+            <hr/>
+
+            <div role="contentinfo">
+              <p>
+                &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+
+              </p>
+            </div>
+            Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+          </footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT: './',
+      VERSION: '1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '.html',
+      HAS_SOURCE: true
+    };
+  </script>
+  <script type="text/javascript" src="_static/jquery.js"></script>
+  <script type="text/javascript" src="_static/underscore.js"></script>
+  <script type="text/javascript" src="_static/doctools.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function() {
+      SphinxRtdTheme.StickyNav.enable();
+    });
+  </script>
+
+
+</body>
+
+</html>

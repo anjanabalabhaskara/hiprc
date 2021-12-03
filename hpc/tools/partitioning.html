@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PySchedCL’s documentation! &mdash; PySchedCL 1.0 documentation</title>
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+
+
+
+
+  <link rel="top" title="PySchedCL 1.0 documentation" href="#" />
+  <link rel="next" title="pyschedcl package" href="pyschedcl.html" />
+
+  <link rel="author" title="About these documents" href="#" />
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="top" title="PySchedCL documentation" href="index.html" />
+  <link rel="next" title="Installation" href="install.html" />
+  <link rel="prev" title="PySchedCL Environment" href="index.html" />
+
+
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+
+          <a href="#" class="icon icon-home"> PySchedCL
+
+
+
+          </a>
+
+
+
+
+          <div class="version">
+            1.0
+          </div>
+
+
+
+
+          <div role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+              <input type="text" name="q" placeholder="Search docs" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+          </div>
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <ul>
+            <li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="pyschedcl.html">API Documentation</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="json_tutorial.html">Kernel Specification File</a></li>
+            <li class="toctree-l1 current"><a class="reference internal" href="partitioning.html">Partitioning</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="scheduling.html">Scheduling</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+            <li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+            <!-- <li class="toctree-l1"><a class="reference internal" href="releasenotes.html">Release notes</a></li> -->
+            <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PySchedCL</a>
+      </nav>
+
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+
+
+
+
+
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ul class="wy-breadcrumbs">
+              <li><a href="#">Docs</a> &raquo;</li>
+
+              <li>PySchedCL&#8217;s documentation!</li>
+              <li class="wy-breadcrumbs-aside">
+
+                <div class=asetop>
+                    <a href=../index_hpc.php> HPC </a>
+                    |
+                  <a href=genindex.html>index</a> | <a href=pyschedcl.html>modules</a> | <a href="https://github.com/anighose25/pyschedcl">github</a> | <a href=_modules/pyschedcl/pyschedcl.html> source</a>
+                </div>
+              </li>
+            </ul>
+            <hr/>
+          </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div itemprop="articleBody">
+
+              <div class="section" id="pyschedcl-home">
+                <h1>Partitioning <a class="headerlink" href="#pyschedcl-home" title="Permalink to this headline">¶</a></h1>
+                <p> The primary objective of the <b>partition.py</b> script is to distribute the computational dataspace processed by an OpenCL kernel given a partition class value and a dataset value. The partition class value is a number from the integer set {0,1,...10} where 0 is interpreted as processing 100% of the dataspace on the CPU, 10 is interpreted as processing 100% of the dataspace on the GPU. Any number <b><i>x</i></b> in between represents the situation where (100-<b><i>x</i></b>*10) % of the dataspace is processed on the CPU  and the remaining <b><i>x</i></b>*10 % of the dataspace is processed on the GPU.
+                In this context, we present a simple matrix vector multiplication kernel and discuss how it is partitioned across one CPU and one GPU.
+                </p>
+
+                  <div class="toctree-wrapper compound">
+                    <h2>An Illustrative Example</h2>
+
+                    <b>Matrix and Vector Multiplication :</b>
+                    <p> The standard matrix-vector multiplication application computes the dot product of each row of an input matrix with a column vector and generates an output vector.</p>
+                    <p> <img src="mv_mul.jpg" alt="matrix-vector multiplication"> </p>
+                    <p> The corresponding OpenCL kernel code is shown below.
+
+
+                    <!-- HTML generated using hilite.me -->
+                    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                      <table>
+                        <tr>
+                          <td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td>
+                          <td><pre style="margin: 0; line-height: 125%">typedef <span style="color: #007020">float</span> DATA_TYPE;
+
+__kernel void atax_kernel1(__global DATA_TYPE <span style="color: #333333">*</span>A, __global DATA_TYPE <span style="color: #333333">*</span>x, __global DATA_TYPE <span style="color: #333333">*</span>tmp, <span style="color: #007020">int</span> nx, <span style="color: #007020">int</span> ny){
+<span style="color: #007020">int</span> i <span style="color: #333333">=</span> get_global_id(<span style="color: #0000DD; font-weight: bold">0</span>);
+<span style="color: #008800; font-weight: bold">if</span> (i <span style="color: #333333">&lt;</span> nx){
+ <span style="color: #007020">int</span> j;
+ <span style="color: #008800; font-weight: bold">for</span>(j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; j <span style="color: #333333">&lt;</span> ny; j<span style="color: #333333">++</span>){
+   tmp[i] <span style="color: #333333">+=</span> A[i <span style="color: #333333">*</span> ny <span style="color: #333333">+</span> j] <span style="color: #333333">*</span> x[j];
+ }
+}
+}
+</pre></td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <p><br/>As evident from the above code, the kernel requires one 2D input buffer for the matrix, one 1D input buffer for the column vector, one 1D output buffer which is the output vector and two variables denoting the number of rows and columns of the matrix to be processed. The kernel performs a matrix-vector multiplication and stores the result in an output buffer which is a column vector. The <a href="json_tutorial.html">corresponding specification file </a> is saved in the info folder in the PySchedCL package. The parameter details for the specification file is depicted below.
+                    <br/></p>
+                    <p><b>JSON file : </b> </p>
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></td><td><pre style="margin: 0; line-height: 125%">{
+    <span style="color: #007700">&quot;globalWorkSize&quot;</span>: <span style="background-color: #fff0f0">&quot;[dataset]&quot;</span>,
+    <span style="color: #007700">&quot;inputBuffers&quot;</span>: [
+        {
+            <span style="color: #007700">&quot;break&quot;</span>: <span style="color: #0000DD; font-weight: bold">1</span>,
+            <span style="color: #007700">&quot;pos&quot;</span>: <span style="color: #0000DD; font-weight: bold">0</span>,
+            <span style="color: #007700">&quot;size&quot;</span>: <span style="background-color: #fff0f0">&quot;dataset**2&quot;</span>,
+            <span style="color: #007700">&quot;type&quot;</span>: <span style="background-color: #fff0f0">&quot;float&quot;</span>
+        },
+        {
+            <span style="color: #007700">&quot;break&quot;</span>: <span style="color: #0000DD; font-weight: bold">0</span>,
+            <span style="color: #007700">&quot;pos&quot;</span>: <span style="color: #0000DD; font-weight: bold">1</span>,
+            <span style="color: #007700">&quot;size&quot;</span>: <span style="background-color: #fff0f0">&quot;dataset&quot;</span>,
+            <span style="color: #007700">&quot;type&quot;</span>: <span style="background-color: #fff0f0">&quot;float&quot;</span>
+        }
+    ],
+    <span style="color: #007700">&quot;name&quot;</span>: <span style="background-color: #fff0f0">&quot;atax_kernel1&quot;</span>,
+    <span style="color: #007700">&quot;outputBuffers&quot;</span>: [
+        {
+            <span style="color: #007700">&quot;break&quot;</span>: <span style="color: #0000DD; font-weight: bold">1</span>,
+            <span style="color: #007700">&quot;pos&quot;</span>: <span style="color: #0000DD; font-weight: bold">2</span>,
+            <span style="color: #007700">&quot;size&quot;</span>: <span style="background-color: #fff0f0">&quot;dataset&quot;</span>,
+            <span style="color: #007700">&quot;type&quot;</span>: <span style="background-color: #fff0f0">&quot;float&quot;</span>
+        }
+    ],
+    <span style="color: #007700">&quot;partition&quot;</span>: <span style="color: #0000DD; font-weight: bold">8</span>,
+    <span style="color: #007700">&quot;src&quot;</span>: <span style="background-color: #fff0f0">&quot;atax.cl&quot;</span>,
+    <span style="color: #007700">&quot;varArguments&quot;</span>: [
+        {
+            <span style="color: #007700">&quot;pos&quot;</span>: <span style="color: #0000DD; font-weight: bold">3</span>,
+            <span style="color: #007700">&quot;type&quot;</span>: <span style="background-color: #fff0f0">&quot;int&quot;</span>,
+            <span style="color: #007700">&quot;value&quot;</span>: <span style="background-color: #fff0f0">&quot;partition_round(dataset, size_percent)&quot;</span>
+        },
+        {
+            <span style="color: #007700">&quot;pos&quot;</span>: <span style="color: #0000DD; font-weight: bold">4</span>,
+            <span style="color: #007700">&quot;type&quot;</span>: <span style="background-color: #fff0f0">&quot;int&quot;</span>,
+            <span style="color: #007700">&quot;value&quot;</span>: <span style="background-color: #fff0f0">&quot;dataset&quot;</span>
+        }
+    ],
+    <span style="color: #007700">&quot;workDimension&quot;</span>: <span style="color: #0000DD; font-weight: bold">1</span>
+}
+</pre></td></tr></table></div>
+                <p><br/>As stated earlier, each element of the output vector is the dot product of the corresponding row of the matrix and the column vector. Therefore, it is safe to partition the matrix row-wise so that the computation can be distributed across both CPU and GPU devices in the heterogeneous platform. For a partition class value of 5, half the rows of the matrix would be used for computing half of the output vector on a CPU device while the other half would be computed on a GPU device. After computation, the final output vector is accumulated on the host side. </p>
+              <div class="image">
+                <img src="partition.png" alt="partition image"  style="border:1px solid black;" >
+                <div>Partitioning  Matrix-vector multiplication with partition class 5</div>
+              </div>
+              <p><br/><bt/>
+              </p> <p> The fact that only the input matrix and the output buffer is to be partitioned needs to be specified. As discussed in the <a href="json_tutorial.html#json_details">Kernel Specification File </a>section, this is done by setting both the <font style="color: #000080; font-weight: bold">break</font> fields  for the first inputbuffer and the outputBuffer to 1.<br/>
+
+             <br/>After designing the kernel specification file, one can run the partition program by specifying the path of the kernel specification file  along with the partition class value and dataset size.
+
+             <div class="highlight-bash">
+               <div class="highlight"><pre><span></span>
+             $ ./partition.py -f info/atax1.json
+
+                 <span class="si"></span>                    </pre></div>
+             </div>
+             Detailed  <b><a href="commands.html#command_partition"> usage </a></b> of the same is provided in the Commands section.
+             </p>
+              <!-- <h2>Underlying Functionalities</h2>
+
+              <h3>Building Kernel</h3>
+              <p>The function <b>build_kernel</b> builds the Kernels from the kernel source file and the information stored in kernel specified file for that kernel for each device and stores the binaries in a dictionary.
+              </p>
+
+              <h3>Dispatch</h3>
+              <p>Dispatch executes a series of events one after the other in the order -
+                <br/>&nbsp;&nbsp;&nbsp;user event -> barrier event -> write event -> barrier event -> ND range event ->barrier event -> read event -> barier event <br/>
+                The barrier events ensures the synchronization of the events.<br/> Dispatch function follows these steps for both CPUs and GPUs -
+                <ul>
+                  <li>First generate a unique id for itself.</li>
+                  <li>Creates inputBuffers, outputBuffers and ioBuffers considering the datasetsize , break value and partition ratio value. </li>
+                  <li>Enqueues all write inputBuffers and ioBuffers to command queues. This event is sandwiched between two barrier events </li>
+                  <li>Set kernel arguments - inputBuffers, outputBuffers, ioBuffers and variables </li>
+                  <li>Launch the kernels by enque ND range</li>
+                  <li>Enqueues all read outputBuffers and ioBuffers to command queues.</li>
+              </p> -->
+                  </div>
+              </div>
+
+            </div>
+          </div>
+          <footer>
+
+            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+              <a href="scheduling.html" class="btn btn-neutral float-right" title="pyschedcl package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+            </div>
+
+
+            <hr/>
+
+            <div role="contentinfo">
+              <p>
+                &copy; Copyright 2017, Anirban Ghose, Lokesh Dokara, Srijeeta Maity.
+
+              </p>
+            </div>
+            Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+          </footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+
+
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT: './',
+      VERSION: '1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '.html',
+      HAS_SOURCE: true
+    };
+  </script>
+  <script type="text/javascript" src="_static/jquery.js"></script>
+  <script type="text/javascript" src="_static/underscore.js"></script>
+  <script type="text/javascript" src="_static/doctools.js"></script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    jQuery(function() {
+      SphinxRtdTheme.StickyNav.enable();
+    });
+  </script>
+
+
+</body>
+
+</html>

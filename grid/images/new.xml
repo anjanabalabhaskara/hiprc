@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+// Place global declarations here.
+clock time;
+
+int i=0;
+bool  allocate=0;
+
+chan n_allocate,update_cost_1,update_cost_2;
+
+bool active_1=0,active_2=0;
+
+
+
+const int t=2000;
+typedef int[0,t] b_time; //booking time
+
+
+
+int d,cap;	//store the duration and capacity of booking
+
+bool z11=0,z12=0,z13=0,z14=0,z15=0,z16=0;            //flag to indicate room availability, r1=0 =&gt; available
+bool z21=0,z22=0,z23=0,z24=0,z25=0,z26=0;
+
+int c1=0,c2=0;  //duct activation cost
+ 					
+
+</declaration><template><name x="8" y="8">G</name><declaration>// Place local declarations here.
+const int B=4;    //number of booking
+
+b_time end=87; // indicate end of demand usage
+
+
+typedef int[10,100] b_cap;    //booking capacity
+
+
+typedef struct{
+    b_time start;
+    b_time duration;
+    b_cap capacity;
+} b_structure;        // booking structure
+
+const b_structure booking[B] = {
+{0,6,70},
+{0,6,80},
+{0,6,50},
+{3,6,70}
+};</declaration><location id="id0" x="-336" y="8"><name x="-344" y="-24">l_g</name><committed/></location><location id="id1" x="24" y="8"><name x="48" y="0">l_2</name><label kind="invariant" x="-48" y="24">cost' == c1+c2 and time &lt;= end</label></location><location id="id2" x="16" y="-112"><name x="8" y="-144">l_1</name><urgent/></location><location id="id3" x="-344" y="-112"><name x="-352" y="-144">l_0</name><label kind="invariant" x="-672" y="-120">time&lt;=booking[i].start and cost' == c1+c2</label></location><init ref="id3"/><transition><source ref="id2"/><target ref="id1"/><label kind="guard" x="40" y="-64">i==B-1 &amp;&amp; allocate==1</label><nail x="24" y="-8"/></transition><transition><source ref="id1"/><target ref="id0"/><label kind="guard" x="-216" y="32">time == end</label></transition><transition><source ref="id2"/><target ref="id3"/><label kind="guard" x="-256" y="-48">allocate==1 &amp;&amp; i!=B-1</label><label kind="assignment" x="-184" y="-24">i++</label><nail x="-160" y="-48"/></transition><transition><source ref="id3"/><target ref="id2"/><label kind="guard" x="-280" y="-296">time == booking[i].start</label><label kind="synchronisation" x="-216" y="-280">n_allocate !</label><label kind="assignment" x="-256" y="-256">cap = booking[i].capacity,
+d= booking[i].duration,
+allocate=0</label><nail x="-168" y="-216"/></transition></template><template><name>Z11</name><declaration>clock z11c;
+
+b_time z11d;
+
+const int[10,100] cz11=50;           //capacity of room
+
+
+
+</declaration><location id="id4" x="32" y="-64"><name x="22" y="-94">occupied</name><label kind="invariant" x="22" y="-49">z11c&lt;=z11d</label></location><location id="id5" x="-208" y="-64"><name x="-272" y="-96">unoccupied</name></location><init ref="id5"/><transition><source ref="id4"/><target ref="id5"/><label kind="guard" x="-128" y="0">z11c ==z11d</label><label kind="synchronisation" x="-128" y="16">update_cost_1!</label><label kind="assignment" x="-120" y="48">z11=0</label><nail x="-80" y="-8"/></transition><transition><source ref="id5"/><target ref="id4"/><label kind="guard" x="-136" y="-240">cap&lt;=cz11</label><label kind="synchronisation" x="-136" y="-224">n_allocate?</label><label kind="assignment" x="-128" y="-200">z11c=0,
+z11=1,
+z11d=d,
+active_1=1,
+allocate=1</label><nail x="-96" y="-136"/></transition></template><template><name>Z12</name><declaration>clock z12c;
+
+b_time z12d;
+
+const int[10,100] cz12=80;           //capacity of room
+</declaration><location id="id6" x="64" y="-64"><name x="54" y="-94">occupied</name><label kind="invariant" x="54" y="-49">z12c&lt;=z12d</label></location><location id="id7" x="-160" y="-64"><name x="-216" y="-96">unoccupied</name></location><init ref="id7"/><transition><source ref="id6"/><target ref="id7"/><label kind="guard" x="-112" y="-16">z12c ==z12d</label><label kind="synchronisation" x="-120" y="0">update_cost_1!</label><label kind="assignment" x="-96" y="16">z12=0</label><nail x="-48" y="-16"/></transition><transition><source ref="id7"/><target ref="id6"/><label kind="guard" x="-120" y="-216">cap&lt;=cz12</label><label kind="synchronisation" x="-112" y="-200">n_allocate?</label><label kind="assignment" x="-104" y="-184">z12c=0,
+z12=1,
+z12d=d,
+active_1=1,
+allocate=1</label><nail x="-72" y="-128"/></transition></template><template><name>Z13</name><declaration>clock z13c;
+
+b_time z13d;
+
+
+const int[10,100] cz13=70;           //capacity of room</declaration><location id="id8" x="128" y="-32"><name x="118" y="-62">occupied</name><label kind="invariant" x="118" y="-17">z13c&lt;=z13d</label></location><location id="id9" x="-176" y="-40"><name x="-232" y="-72">unoccupied</name></location><init ref="id9"/><transition><source ref="id8"/><target ref="id9"/><label kind="guard" x="-72" y="8">z13c ==z13d</label><label kind="synchronisation" x="-64" y="24">update_cost_1!</label><label kind="assignment" x="-56" y="48">z13=0</label><nail x="-24" y="8"/></transition><transition><source ref="id9"/><target ref="id8"/><label kind="guard" x="-96" y="-216">cap&lt;=cz13</label><label kind="synchronisation" x="-88" y="-192">n_allocate?</label><label kind="assignment" x="-80" y="-176">z13c=0,
+z13=1,
+z13d=d,
+active_1=1,
+allocate=1</label><nail x="-32" y="-112"/></transition></template><template><name>Z14</name><declaration>clock z14c;
+
+b_time z14d;
+
+const int[10,100] cz14=100;           //capacity of room</declaration><location id="id10" x="80" y="-72"><name x="70" y="-102">occupied</name><label kind="invariant" x="70" y="-57">z14c&lt;=z14d</label></location><location id="id11" x="-168" y="-80"><name x="-232" y="-112">unoccupied</name></location><init ref="id11"/><transition><source ref="id10"/><target ref="id11"/><label kind="guard" x="-96" y="-16">z14c ==z14d</label><label kind="synchronisation" x="-96" y="0">update_cost_1!</label><label kind="assignment" x="-72" y="32">z14=0</label><nail x="-40" y="-24"/></transition><transition><source ref="id11"/><target ref="id10"/><label kind="guard" x="-120" y="-256">cap&lt;=cz14</label><label kind="synchronisation" x="-112" y="-232">n_allocate?</label><label kind="assignment" x="-104" y="-208">z14c=0,
+z14=1,
+z14d=d,
+active_1=1,
+allocate=1</label><nail x="-80" y="-152"/></transition></template><template><name>Z15</name><declaration>clock z15c;
+
+b_time z15d;
+
+const int[10,100] cz15=70;           //capacity of room</declaration><location id="id12" x="96" y="-80"><name x="86" y="-110">occupied</name><label kind="invariant" x="86" y="-65">z15c&lt;=z15d</label></location><location id="id13" x="-208" y="-72"><name x="-272" y="-104">unoccupied</name></location><init ref="id13"/><transition><source ref="id12"/><target ref="id13"/><label kind="guard" x="-104" y="-24">z15c ==z15d</label><label kind="synchronisation" x="-112" y="0">update_cost_1!</label><label kind="assignment" x="-104" y="24">z15=0</label><nail x="-56" y="-24"/></transition><transition><source ref="id13"/><target ref="id12"/><label kind="guard" x="-136" y="-248">cap&lt;=cz15</label><label kind="synchronisation" x="-136" y="-232">n_allocate?</label><label kind="assignment" x="-120" y="-216">z15c=0,
+z15=1,
+z15d=d,
+active_1=1,
+allocate=1</label><nail x="-88" y="-152"/></transition></template><template><name>Z21</name><declaration>clock z21c;
+
+b_time z21d;
+
+const int[10,100] cz21=80;</declaration><location id="id14" x="80" y="-72"><name x="70" y="-102">occupied</name><label kind="invariant" x="70" y="-57">z21c&lt;=z21d</label></location><location id="id15" x="-184" y="-72"><name x="-232" y="-104">unoccupied</name></location><init ref="id15"/><transition><source ref="id14"/><target ref="id15"/><label kind="guard" x="-112" y="-32">z21c ==z21d</label><label kind="synchronisation" x="-112" y="-16">update_cost_2!</label><label kind="assignment" x="-96" y="8">z21=0</label><nail x="-56" y="-32"/></transition><transition><source ref="id15"/><target ref="id14"/><label kind="guard" x="-112" y="-232">cap&lt;=cz21</label><label kind="synchronisation" x="-120" y="-216">n_allocate?</label><label kind="assignment" x="-104" y="-192">z21c=0,
+z21=1,
+z21d=d,
+active_2=1,
+allocate=1</label><nail x="-64" y="-144"/></transition></template><template><name>Z22</name><declaration>clock z22c;
+
+b_time z22d;
+
+const int[10,100] cz22=70;</declaration><location id="id16" x="72" y="-64"><name x="62" y="-94">occupied</name><label kind="invariant" x="62" y="-49">z22c&lt;=z22d</label></location><location id="id17" x="-160" y="-64"><name x="-216" y="-96">unoccupied</name></location><init ref="id17"/><transition><source ref="id16"/><target ref="id17"/><label kind="guard" x="-104" y="-16">z22c ==z22d</label><label kind="synchronisation" x="-112" y="0">update_cost_2!</label><label kind="assignment" x="-88" y="32">z22=0</label><nail x="-48" y="-16"/></transition><transition><source ref="id17"/><target ref="id16"/><label kind="guard" x="-112" y="-224">cap&lt;=cz22</label><label kind="synchronisation" x="-112" y="-200">n_allocate?</label><label kind="assignment" x="-96" y="-184">z22c=0,
+z22=1,
+z22d=d,
+active_2=1,
+allocate=1</label><nail x="-64" y="-128"/></transition></template><template><name>Z23</name><declaration>clock z23c;
+
+b_time z23d;
+
+const int[10,100] cz23=100;</declaration><location id="id18" x="112" y="-64"><name x="102" y="-94">occupied</name><label kind="invariant" x="102" y="-49">z23c&lt;=z23d</label></location><location id="id19" x="-192" y="-56"><name x="-256" y="-88">unoccupied</name></location><init ref="id19"/><transition><source ref="id18"/><target ref="id19"/><label kind="guard" x="-88" y="-16">z23c ==z23d</label><label kind="synchronisation" x="-88" y="0">update_cost_2!</label><label kind="assignment" x="-72" y="24">z23=0</label><nail x="-32" y="-16"/></transition><transition><source ref="id19"/><target ref="id18"/><label kind="guard" x="-112" y="-224">cap&lt;=cz23</label><label kind="synchronisation" x="-112" y="-208">n_allocate?</label><label kind="assignment" x="-104" y="-184">z23c=0,
+z23=1,
+z23d=d,
+active_2=1,
+allocate=1</label><nail x="-64" y="-144"/></transition></template><template><name>Z24</name><declaration>clock z24c;
+
+b_time z24d;
+
+const int[10,100] cz24=70;</declaration><location id="id20" x="88" y="-64"><name x="78" y="-94">occupied</name><label kind="invariant" x="78" y="-49">z24c&lt;=z24d</label></location><location id="id21" x="-176" y="-64"><name x="-240" y="-96">unoccupied</name></location><init ref="id21"/><transition><source ref="id20"/><target ref="id21"/><label kind="guard" x="-96" y="-8">z24c ==z24d</label><label kind="synchronisation" x="-96" y="8">update_cost_2!</label><label kind="assignment" x="-80" y="32">z24=0</label><nail x="-32" y="-8"/></transition><transition><source ref="id21"/><target ref="id20"/><label kind="guard" x="-120" y="-224">cap&lt;=cz24</label><label kind="synchronisation" x="-120" y="-208">n_allocate?</label><label kind="assignment" x="-104" y="-184">z24c=0,
+z24=1,
+z24d=d,
+active_2=1,
+allocate=1</label><nail x="-72" y="-144"/></transition></template><template><name>Z25</name><declaration>clock z25c;
+
+b_time z25d;
+
+const int[10,100] cz25=50;</declaration><location id="id22" x="72" y="-64"><name x="62" y="-94">occupied</name><label kind="invariant" x="62" y="-49">z25c&lt;=z25d</label></location><location id="id23" x="-184" y="-64"><name x="-240" y="-96">unoccupied</name></location><init ref="id23"/><transition><source ref="id22"/><target ref="id23"/><label kind="guard" x="-104" y="-24">z25c ==z25d</label><label kind="synchronisation" x="-112" y="-8">update_cost_2!</label><label kind="assignment" x="-96" y="16">z25=0</label><nail x="-56" y="-24"/></transition><transition><source ref="id23"/><target ref="id22"/><label kind="guard" x="-120" y="-224">cap&lt;=cz25</label><label kind="synchronisation" x="-112" y="-208">n_allocate?</label><label kind="assignment" x="-104" y="-192">z25c=0,
+z25=1,
+z25d=d,
+active_2=1,
+allocate=1</label><nail x="-80" y="-128"/></transition></template><template><name>A1</name><location id="id24" x="120" y="-48"><name x="136" y="-64">active</name></location><location id="id25" x="-160" y="-48"><name x="-170" y="-78">idle</name></location><init ref="id25"/><transition><source ref="id24"/><target ref="id24"/><label kind="guard" x="200" y="-16">z11==1 || z12==1 || z13==1 || z14==1 || z15==1</label><label kind="synchronisation" x="192" y="8">update_cost_1?</label><nail x="168" y="40"/><nail x="208" y="-24"/></transition><transition><source ref="id24"/><target ref="id25"/><label kind="guard" x="-272" y="0">z11==0 &amp;&amp; z12==0 &amp;&amp; z13==0 &amp;&amp; z14==0 &amp;&amp; z15==0</label><label kind="synchronisation" x="-72" y="16">update_cost_1?</label><label kind="assignment" x="-64" y="32">c1=0</label><nail x="-16" y="0"/></transition><transition><source ref="id25"/><target ref="id24"/><label kind="guard" x="-80" y="-160">active_1==1</label><label kind="assignment" x="-64" y="-136">c1=5</label><nail x="-40" y="-112"/></transition></template><template><name>A2</name><location id="id26" x="80" y="-56"><name x="104" y="-72">active</name></location><location id="id27" x="-176" y="-56"><name x="-186" y="-86">idle</name></location><init ref="id27"/><transition><source ref="id26"/><target ref="id26"/><label kind="guard" x="168" y="-24">z21==1 || z22==1 || z23==1 || z24==1 || z25==1</label><label kind="synchronisation" x="152" y="0">update_cost_2?</label><nail x="128" y="32"/><nail x="168" y="-32"/></transition><transition><source ref="id26"/><target ref="id27"/><label kind="guard" x="-352" y="0">z21==0 &amp;&amp; z22==0 &amp;&amp; z23==0 &amp;&amp; z24==0 &amp;&amp; z25==0</label><label kind="synchronisation" x="-128" y="24">update_cost_2?</label><label kind="assignment" x="-112" y="48">c2=0</label><nail x="-40" y="-8"/></transition><transition><source ref="id27"/><target ref="id26"/><label kind="guard" x="-96" y="-152">active_2==1</label><label kind="assignment" x="-80" y="-128">c2=5</label><nail x="-40" y="-104"/></transition></template><system>// Place template instantiations here.
+//Process = Template();
+
+// List one or more processes to be composed into a system.
+//system Process;
+
+
+process1 = G();
+process2 = Z11();
+process3 = Z12();
+process4 = Z13();
+process5 = Z14();
+process6 = Z15();
+process7 = Z21();
+process8 = Z22();
+process9 = Z23();
+process10 = Z24();
+process11 = Z25();
+process12 = A1();
+process13 = A2();
+
+
+
+system process1, process2, process3, process4, process5, process6, process7, process8, process9, process10, process11, process12, process13;</system></nta>

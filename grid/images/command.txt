@@ -1,0 +1,1 @@
+./verifyta -t3 -o0 new.xml hvac.q -f trace_new > result_new.txt
