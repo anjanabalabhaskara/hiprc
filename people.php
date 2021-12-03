@@ -140,6 +140,15 @@ We work in close collaboration with <a target="_blank" style="font-weight:bold" 
                         <p></p>
                     </div>
                 </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="team-wrapper">
+                        <img src="./images/people/sunandan1.jpg"   class="img-responsive team-img"
+                            alt="team img">
+                        <h3>Sunandan Adhikary
+                        <!-- , <small style="font-weight:bold">MS Scholar</small></h3> -->
+                        <h4><b>Research Area:</b> Control Theory, CPS Security, Formal Methods</h4>
+                    </div>
+                </div>
             </div>
             <div class="row text-center">
                 <div class="col-md-offset-2 col-md-8 col-sm-12 ">
@@ -182,15 +191,7 @@ We work in close collaboration with <a target="_blank" style="font-weight:bold" 
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="team-wrapper">
-                        <img src="./images/people/sunandan1.jpg"   class="img-responsive team-img"
-                            alt="team img">
-                        <h3>Sunandan Adhikary
-                        <!-- , <small style="font-weight:bold">MS Scholar</small></h3> -->
-                        <h4><b>Research Area:</b> Control Theory, CPS Security, Formal Methods</h4>
-                    </div>
-                </div>
+                
             </div>
             <!-- <div class="row text-center">
                 <div class="col-md-offset-2 col-md-8 col-sm-12 ">
