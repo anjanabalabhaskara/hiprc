@@ -1,5 +1,12 @@
 # http://cse.iitkgp.ac.in/resgrp/hiprc/
-- Our research group Website
+- **Our research group Website**
+- `git clone https://github.com/SunandanAdhikary/hiprc.git` in your local to work on it on the very first time
+- Update and copy the updated files/folders in the website sever 
+- `git add .` and then `git commit -m "your coment"`  with _very specific comment with 1-liner description the chages that you made_ and `git push origin master` those changes here
+- **Do not forget to `git pull`in your local directory everytime you work on it, otherwise changes made by others will be lost**
+- If two people are working on the same file, merge carefully discussing the conflicts among yourselves
+- [A nice git cheat sheet for you reference](https://rogerdudler.github.io/git-guide/)
+- Below are the instructions to visualize the changes you made before finalizing creating a local server with  WAMP/XAMP/MAMP
 
 #### 1. Install WAMP/XAMP/MAMP based on your OS i.e. Win/Linux/MAC
 #### 2. Clone/pull this project insite www or htdocs folder of your  WAMP/XAMP/MAMP/LAMP installation directory
