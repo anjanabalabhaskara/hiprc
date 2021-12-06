@@ -146,7 +146,8 @@ We work in close collaboration with <a target="_blank" style="font-weight:bold" 
                             alt="team img">
                         <h3>Sunandan Adhikary
                         <!-- , <small style="font-weight:bold">MS Scholar</small></h3> -->
-                        <h4><b>Research Area:</b> Control Theory, CPS Security, Formal Methods</h4>
+                        <h4><b>Research Area:</b> Control Theory, CPS Security, Formal Methods, Safe RL</h4>
+                        <a target="_blank" class="fa fa-user" href="https://sunandanadhikary.github.io/"></a>  
                     </div>
                 </div>
             </div>
@@ -165,6 +166,7 @@ We work in close collaboration with <a target="_blank" style="font-weight:bold" 
                         <h3>Rumia Masburah
                         <!-- , <small style="font-weight:bold">MS Scholar</small> -->
                             <!-- <a target="_blank" class="ai ai-google-scholar" href=""></a> -->
+                        <a target="_blank" class="fa fa-linkedin-square" style="font-size:24px" href="https://www.linkedin.com/in/rumia-masburah-49229aa2/"></a>
                         </h3>
                         <h4><b>Research Area:</b> Smart Grid Design & Control, Smart Building Control, HVAC Automation
                         </h4>
