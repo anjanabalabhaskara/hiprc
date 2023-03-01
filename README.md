@@ -18,7 +18,7 @@
 > **in WAMP** if *C:/wamp64/www/Hiprc_website/* is your project folder and you want to add as virtualhost and *hiprc* be alias(vhost name) you want to access it with then add them in corresponding spaces in add [virtualhosts page](http://localhost/add_vhost.php?lang=english) (add virtual host option will be at left down corner of your localhost page I guess). 
 > **in LAMPP/XAMPP** it should be accessible with [localhost/your_project_folder_name]. If the stylesheet is not linked when you open your webpage then you need to add virtualhost alias manually i.e. **1)** in LAMPP/XAMPP inside `apache/conf/` folder (or `opt/lampp/etc/conf/` folder) edit the **httpd.conf** file and uncomment if there is anyline with `include /etc/extra/httpd-vhosts.conf`, **2)** inside `apache/extra/` folder (or `opt/lampp/etc/extra/` folder) edit the **httpd-vhosts.conf** file and uncomment the section starting with `NameVirtualHost*:80`. You will have to add both *localhost* and your *project vhost alias*. After adding it should look like 
 ```
-<VirtualHost *:80> <<the port number you want to use>>
+<VirtualHost 127.0.0.5:80> <<the port number you want to use>>
 	ServerName hiprc <<servername alias like "localhost" you want to use to load the following directory>>
 	DocumentRoot "f:/wamp64/www/hiprc_webpage_new" <<or in UBUNTU "opt/lampp/htdocs/hiprc_webpage_new">>
 	<Directory  "f:/wamp64/www/hiprc_webpage_new/"> <<or in UBUNTU "opt/lampp/htdocs/hiprc_webpage_new">>
